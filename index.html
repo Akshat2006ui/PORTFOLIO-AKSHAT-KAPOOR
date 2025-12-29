@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Akshat Kapoor - AI/ML Engineer & Full-Stack Developer. Next-Gen Flood Monitoring (Suraksha AI), Gen AI, NLP, Data Science">
-    <meta name="keywords" content="AI, ML, Gen AI, NLP, Full-Stack, Data Science, Flood Monitoring, Suraksha AI">
-    <title>Akshat Kapoor - AI/ML Engineer | Suraksha AI Creator</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75' fill='%232198CD'>⚡</text></svg>">
+    <meta name="description" content="Akshat Kapoor - AI/ML Engineer & Full-Stack Developer">
+    <title>Akshat Kapoor - AI/ML Engineer</title>
     <style>
         * {
             margin: 0;
@@ -16,17 +14,11 @@
 
         :root {
             --primary: #2198CD;
-            --primary-dark: #1a7bb3;
             --secondary: #00d4ff;
-            --accent: #ff6b6b;
             --dark-bg: #0a1628;
             --card-bg: #1a2c4a;
             --text-light: #e0e0e0;
             --text-dark: #8a8a8a;
-        }
-
-        html {
-            scroll-behavior: smooth;
         }
 
         body {
@@ -34,7 +26,7 @@
             background: linear-gradient(135deg, #0a1628 0%, #1a2c4a 100%);
             color: var(--text-light);
             line-height: 1.6;
-            min-height: 100vh;
+            font-size: 14px;
         }
 
         /* Navigation */
@@ -46,7 +38,7 @@
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(33, 152, 205, 0.2);
             z-index: 1000;
-            padding: 1rem 0;
+            padding: 0.8rem 0;
         }
 
         nav .container {
@@ -59,35 +51,34 @@
         }
 
         .logo {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 700;
             background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 2.5rem;
+            gap: 2rem;
         }
 
         nav a {
             color: var(--text-light);
             text-decoration: none;
             font-weight: 500;
+            font-size: 0.9rem;
             transition: all 0.3s ease;
             position: relative;
+            padding-bottom: 5px;
         }
 
         nav a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: 0;
             left: 0;
             width: 0;
             height: 2px;
@@ -95,104 +86,27 @@
             transition: width 0.3s ease;
         }
 
-        nav a:hover::after,
-        nav a.active::after {
-            width: 100%;
-        }
-
         nav a:hover {
             color: var(--secondary);
         }
 
+        nav a:hover::after {
+            width: 100%;
+        }
+
         /* Container */
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
         }
 
-        /* Professional Layout Improvements */
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-subtitle {
-            color: var(--text-dark);
-            font-size: 1.1rem;
-            margin-top: 0.5rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Expandable Content */
-        .expandable-section {
-            margin-bottom: 2rem;
-        }
-
-        .expand-toggle {
-            background: var(--card-bg);
-            border: 1px solid rgba(33, 152, 205, 0.3);
-            padding: 1.5rem;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .expand-toggle:hover {
-            border-color: var(--secondary);
-            background: rgba(33, 152, 205, 0.05);
-        }
-
-        .expand-toggle h3 {
-            color: var(--secondary);
-            margin: 0;
-            font-size: 1.3rem;
-        }
-
-        .expand-icon {
-            font-size: 1.5rem;
-            color: var(--primary);
-            transition: transform 0.3s ease;
-        }
-
-        .expand-icon.active {
-            transform: rotate(180deg);
-        }
-
-        .expand-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease;
-            background: rgba(26, 44, 74, 0.3);
-            border-radius: 0 0 12px 12px;
-            margin-top: -12px;
-            padding: 0 1.5rem;
-        }
-
-        .expand-content.active {
-            max-height: 2000px;
-            padding: 1.5rem;
-            border: 1px solid rgba(33, 152, 205, 0.2);
-            border-top: none;
-        }
-
-        .expand-content p {
-            color: var(--text-dark);
-            line-height: 1.8;
-            margin-bottom: 1rem;
-        }
-
-        /* Page Transition */
+        /* Page System */
         .page {
             display: none;
             opacity: 0;
             animation: fadeIn 0.5s ease forwards;
-            margin-top: 80px;
+            margin-top: 60px;
         }
 
         .page.active {
@@ -201,62 +115,36 @@
         }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* Hero Section */
         .hero {
-            padding: 120px 2rem 80px;
+            padding: 100px 2rem 60px;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            z-index: 0;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-            margin: 0 auto;
         }
 
         .profile-img {
-            width: 180px;
-            height: 180px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
             border: 3px solid var(--secondary);
-            margin: 0 auto 2rem;
+            margin: 0 auto 1.5rem;
             object-fit: cover;
             box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
-            animation: float 3s ease-in-out infinite;
+            transition: all 0.4s ease;
+            cursor: pointer;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+        .profile-img:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 0 50px rgba(0, 212, 255, 0.6);
+            border-color: var(--primary);
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 2.2rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
             background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
@@ -265,46 +153,39 @@
         }
 
         .hero .subtitle {
-            font-size: 1.3rem;
+            font-size: 1rem;
             color: var(--secondary);
             margin-bottom: 1rem;
         }
 
         .hero p {
-            font-size: 1.1rem;
+            font-size: 0.9rem;
             color: var(--text-dark);
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto 2rem;
         }
 
-        .cta-buttons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
         .btn {
-            padding: 12px 32px;
+            padding: 10px 28px;
             border: none;
             border-radius: 8px;
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.3s;
             text-decoration: none;
             display: inline-block;
+            margin: 0 0.5rem;
         }
 
         .btn-primary {
             background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
             color: white;
-            box-shadow: 0 8px 25px rgba(0, 212, 255, 0.2);
         }
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(0, 212, 255, 0.4);
+            box-shadow: 0 8px 20px rgba(0, 212, 255, 0.3);
         }
 
         .btn-secondary {
@@ -317,35 +198,60 @@
             background: rgba(33, 152, 205, 0.1);
         }
 
-        /* Sections */
+        /* Section Styles */
         section {
-            padding: 100px 2rem;
+            padding: 60px 2rem;
         }
 
         section h2 {
-            font-size: 2.8rem;
-            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
             text-align: center;
             background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-weight: 700;
+            position: relative;
+            display: inline-block;
+            width: 100%;
         }
 
-        /* About Section */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            max-width: 1000px;
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+            border-radius: 2px;
+        }
+
+        /* Two Column Layout */
+        .two-col {
+            display: flex;
+            gap: 3rem;
+            max-width: 1200px;
             margin: 0 auto;
+            align-items: flex-start;
         }
 
-        .about-text p {
-            margin-bottom: 1.5rem;
+        .two-col > div {
+            flex: 1;
+        }
+
+        .two-col p {
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
             color: var(--text-dark);
-            line-height: 1.8;
+            line-height: 1.7;
+            transition: all 0.3s ease;
+        }
+
+        .two-col p:hover {
+            color: var(--text-light);
+            transform: translateX(5px);
         }
 
         .highlight {
@@ -353,583 +259,346 @@
             font-weight: 600;
         }
 
-        .skills-grid {
+        /* Stats Grid */
+        .stat-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-        }
-
-        .skill-bar {
-            margin-bottom: 1.5rem;
-        }
-
-        .skill-bar-label {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-            color: var(--text-light);
-        }
-
-        .skill-bar-container {
-            width: 100%;
-            height: 8px;
-            background: rgba(0, 212, 255, 0.1);
-            border-radius: 10px;
-            overflow: hidden;
-            border: 1px solid var(--primary);
-        }
-
-        .skill-bar-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--secondary) 0%, var(--primary) 100%);
-            border-radius: 10px;
-            transition: width 0.8s ease;
+            gap: 1rem;
         }
 
         .stat-card {
             background: rgba(0, 212, 255, 0.05);
             border: 1px solid var(--primary);
-            padding: 1.5rem;
-            border-radius: 12px;
+            padding: 1.2rem;
+            border-radius: 10px;
             text-align: center;
-            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary);
+            box-shadow: 0 8px 25px rgba(0, 212, 255, 0.3);
+            background: rgba(0, 212, 255, 0.1);
+        }
+
+        .stat-card:hover::before {
+            left: 100%;
+        }
+
+        .stat-card:hover .stat-number {
+            transform: scale(1.2);
+            color: var(--primary);
         }
 
         .stat-number {
-            font-size: 2rem;
+            font-size: 1.6rem;
             color: var(--secondary);
             font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            color: var(--text-dark);
-        }
-
-        .stat-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-            max-width: 1000px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .skill-category h4 {
-            color: var(--secondary);
-            margin-bottom: 0.8rem;
-            font-size: 1rem;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.6rem;
-        }
-
-        .skill-tag {
-            background: rgba(0, 212, 255, 0.1);
-            border: 1px solid var(--primary);
-            color: var(--secondary);
-            padding: 0.4rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        /* Experience Timeline */
-        .timeline {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            padding: 2rem 0;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 3px;
-            height: 100%;
-            background: linear-gradient(180deg, var(--secondary) 0%, var(--primary) 100%);
-        }
-
-        .timeline-item {
-            margin-bottom: 3rem;
-            position: relative;
-        }
-
-        .timeline-item:nth-child(odd) .content {
-            margin-left: 0;
-            margin-right: 52%;
-            text-align: right;
-        }
-
-        .timeline-item:nth-child(even) .content {
-            margin-left: 52%;
-            margin-right: 0;
-            text-align: left;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 20px;
-            height: 20px;
-            background: var(--primary);
-            border: 3px solid var(--dark-bg);
-            border-radius: 50%;
-            top: 0;
-            z-index: 1;
-        }
-
-        .timeline-content {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 12px;
-            border-left: 3px solid var(--secondary);
+            margin-bottom: 0.3rem;
             transition: all 0.3s ease;
         }
 
-        .timeline-content:hover {
-            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
-            transform: translateY(-5px);
-        }
-
-        .timeline-content h3 {
-            color: var(--secondary);
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-content .role {
-            color: var(--primary);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-content .duration {
+        .stat-label {
+            font-size: 0.8rem;
             color: var(--text-dark);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        .timeline-content p {
-            color: var(--text-dark);
-            line-height: 1.7;
         }
 
         /* Projects Grid */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 2.5rem;
-            max-width: 1300px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
         .project-card {
             background: var(--card-bg);
-            border-radius: 16px;
+            border-radius: 12px;
             overflow: hidden;
             border: 1px solid rgba(33, 152, 205, 0.2);
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .project-card:hover {
-            border-color: var(--secondary);
-            box-shadow: 0 12px 45px rgba(0, 212, 255, 0.25);
-            transform: translateY(-8px);
-        }
-
-        .project-card.featured {
-            grid-column: span 1;
-            border: 2px solid var(--secondary);
-            box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
-        }
-
-        .project-image {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-        }
-
-        .project-image-overlay {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
-            overflow: hidden;
+            cursor: pointer;
         }
 
-        .project-image-overlay::after {
+        .project-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            bottom: 0;
-            background: linear-gradient(180deg, transparent 0%, rgba(10, 22, 40, 0.4) 100%);
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
         }
 
-        .project-card-body {
-            padding: 2rem 2rem 1.8rem;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
+        .project-card:hover {
+            border-color: var(--secondary);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.4);
         }
 
-        .project-meta {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
+        .project-card:hover::before {
+            transform: scaleX(1);
         }
 
-        .meta-badge {
-            background: rgba(0, 212, 255, 0.08);
-            border: 1px solid var(--primary);
+        .project-card:hover .project-image {
+            transform: scale(1.1);
+        }
+
+        .project-card:hover h3 {
+            color: var(--primary);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .project-body {
+            padding: 1.5rem;
+        }
+
+        .project-body h3 {
             color: var(--secondary);
-            padding: 0.3rem 0.8rem;
-            border-radius: 6px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
         }
 
-        .featured-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
-            color: white;
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            width: fit-content;
-        }
-
-        .project-card h3 {
-            color: var(--secondary);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        .project-card p {
+        .project-body p {
             color: var(--text-dark);
-            margin-bottom: 1.5rem;
-            flex: 1;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            line-height: 1.6;
         }
 
         .tech-stack {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .tech-badge {
             background: rgba(0, 212, 255, 0.1);
             border: 1px solid var(--primary);
             color: var(--primary);
-            padding: 0.3rem 0.7rem;
+            padding: 0.3rem 0.6rem;
             border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: 500;
+            font-size: 0.75rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
         }
 
-        .project-links {
-            display: flex;
-            gap: 1rem;
+        .tech-badge:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(33, 152, 205, 0.4);
         }
 
         .project-links a {
             color: var(--secondary);
             text-decoration: none;
             font-weight: 600;
+            font-size: 0.85rem;
+            margin-right: 1rem;
             transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.3rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .project-links a::after {
+            content: '→';
+            margin-left: 5px;
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.3s ease;
         }
 
         .project-links a:hover {
             color: var(--primary);
+            transform: translateX(5px);
         }
 
-        /* Certificates Gallery */
-        .cert-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1100px;
+        .project-links a:hover::after {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Timeline */
+        .timeline {
+            max-width: 800px;
             margin: 0 auto;
         }
 
-        .cert-card {
+        .timeline-item {
             background: var(--card-bg);
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid rgba(33, 152, 205, 0.2);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 3px solid var(--secondary);
+            margin-bottom: 1.5rem;
             transition: all 0.3s ease;
             cursor: pointer;
             position: relative;
         }
 
-        .cert-card:hover {
-            border-color: var(--secondary);
-            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.2);
-            transform: translateY(-5px);
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -3px;
+            top: 0;
+            width: 3px;
+            height: 0;
+            background: var(--primary);
+            transition: height 0.4s ease;
         }
 
-        .cert-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        .timeline-item:hover {
+            transform: translateX(10px);
+            box-shadow: -5px 5px 20px rgba(0, 212, 255, 0.2);
+            background: rgba(26, 44, 74, 0.8);
         }
 
-        .cert-body {
-            padding: 1.5rem;
+        .timeline-item:hover::before {
+            height: 100%;
         }
 
-        .cert-body h3 {
+        .timeline-item:hover h3 {
+            color: var(--primary);
+        }
+
+        .timeline-item h3 {
             color: var(--secondary);
             margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
         }
 
-        .cert-body p {
-            color: var(--text-dark);
+        .timeline-item .role {
+            color: var(--primary);
+            font-weight: 600;
             font-size: 0.9rem;
         }
 
-        /* Lightbox */
-        .lightbox {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            z-index: 2000;
-            align-items: center;
-            justify-content: center;
+        .timeline-item .duration {
+            color: var(--text-dark);
+            font-size: 0.8rem;
+            margin-bottom: 0.8rem;
         }
 
-        .lightbox.active {
-            display: flex;
+        .timeline-item p {
+            color: var(--text-dark);
+            font-size: 0.85rem;
+            line-height: 1.6;
         }
 
-        .lightbox-content {
-            max-width: 90%;
-            max-height: 90%;
-            position: relative;
-        }
-
-        .lightbox-image {
-            max-width: 100%;
-            max-height: 100%;
-            border-radius: 8px;
-        }
-
-        .lightbox-close {
-            position: absolute;
-            top: -40px;
-            right: 0;
-            color: white;
-            font-size: 2rem;
-            cursor: pointer;
-            background: none;
-            border: none;
-        }
-
-        /* Contact Section */
+        /* Contact */
         .contact-content {
             text-align: center;
             max-width: 600px;
             margin: 0 auto;
         }
 
-        .contact-content p {
-            color: var(--text-dark);
-            margin-bottom: 2rem;
-        }
-
         .contact-links {
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
+            gap: 1rem;
             flex-wrap: wrap;
-            margin-bottom: 2rem;
+            margin: 2rem 0;
         }
 
         .contact-link {
             color: var(--secondary);
             text-decoration: none;
             font-weight: 600;
-            transition: all 0.3s ease;
-            padding: 0.8rem 1.5rem;
+            padding: 0.7rem 1.2rem;
             border: 2px solid var(--primary);
             border-radius: 8px;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.3), transparent);
+            transition: left 0.5s ease;
         }
 
         .contact-link:hover {
-            background: rgba(0, 212, 255, 0.1);
+            background: rgba(0, 212, 255, 0.15);
             border-color: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 212, 255, 0.3);
         }
 
-        /* Footer */
-        footer {
-            background: rgba(10, 22, 40, 0.5);
-            border-top: 1px solid rgba(33, 152, 205, 0.2);
-            text-align: center;
-            padding: 2rem;
-            color: var(--text-dark);
+        .contact-link:hover::before {
+            left: 100%;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            nav ul {
-                gap: 1.5rem;
-                font-size: 0.9rem;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-content {
-                padding: 0 1rem;
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr;
+            .two-col {
+                flex-direction: column;
                 gap: 2rem;
             }
 
-            .timeline::before {
-                left: 20px;
-            }
-
-            .timeline-item:nth-child(odd) .content,
-            .timeline-item:nth-child(even) .content {
-                margin-left: 60px;
-                margin-right: 0;
-                text-align: left;
-            }
-
-            .timeline-item::before {
-                left: 13px;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .project-card.featured {
-                grid-column: span 1;
-            }
-
-            .cert-gallery {
-                grid-template-columns: 1fr;
-            }
-
-            section {
-                padding: 60px 1rem;
-            }
-
-            section h2 {
-                font-size: 2rem;
-            }
-
-            .section-subtitle {
-                font-size: 1rem;
-            }
-
-            .expand-toggle {
-                padding: 1rem;
-            }
-
-            .expand-toggle span:first-child {
-                font-size: 0.85rem;
-            }
-        }
-
-        @media (max-width: 480px) {
             nav ul {
                 gap: 1rem;
                 font-size: 0.8rem;
             }
 
-            .hero {
-                padding: 100px 1rem 60px;
-            }
-
             .hero h1 {
-                font-size: 2rem;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .btn {
-                width: 100%;
-            }
-
-            section h2 {
                 font-size: 1.8rem;
             }
 
-            .section-subtitle {
-                font-size: 0.95rem;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .project-card-body {
-                padding: 1.5rem;
-            }
-
-            .project-meta {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-
-            .expand-content {
-                padding: 1rem;
+            section h2 {
+                font-size: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
+
     <!-- Navigation -->
     <nav>
         <div class="container">
             <a href="#" class="logo" onclick="goToPage('home')">⚡ Akshat</a>
             <ul>
-                <li><a href="#" onclick="goToPage('home')" class="nav-link">Home</a></li>
-                <li><a href="#" onclick="goToPage('about')" class="nav-link">About</a></li>
-                <li><a href="#" onclick="goToPage('skills')" class="nav-link">Skills</a></li>
-                <li><a href="#" onclick="goToPage('experience')" class="nav-link">Experience</a></li>
-                <li><a href="#" onclick="goToPage('projects')" class="nav-link">Projects</a></li>
-                <li><a href="#" onclick="goToPage('education')" class="nav-link">Education</a></li>
-                <li><a href="#" onclick="goToPage('contact')" class="nav-link">Contact</a></li>
+                <li><a href="#" onclick="goToPage('home')">Home</a></li>
+                <li><a href="#" onclick="goToPage('about')">About</a></li>
+                <li><a href="#" onclick="goToPage('skills')">Skills</a></li>
+                <li><a href="#" onclick="goToPage('experience')">Experience</a></li>
+                <li><a href="#" onclick="goToPage('projects')">Projects</a></li>
+                <li><a href="#" onclick="goToPage('education')">Education</a></li>
+                <li><a href="#" onclick="goToPage('contact')">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -937,15 +606,13 @@
     <!-- Home Page -->
     <div id="home" class="page active">
         <section class="hero">
-            <div class="hero-content">
-                <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/e3212349-0c89-477d-b2b4-f48328e5e268" alt="Akshat Kapoor" class="profile-img">
-                <h1>Akshat Kapoor</h1>
-                <p class="subtitle">AI/ML Engineer | Gen AI Specialist | Full-Stack Developer</p>
-                <p>Building intelligent AI solutions with expertise in Generative AI, NLP, and Deep Learning. Creator of <strong>Suraksha AI</strong> - a next-generation flood monitoring system with 95% accuracy. BTech CSE (Data Science) @ Chandigarh Group of Colleges | Rank #144 GeeksforGeeks.</p>
-                <div class="cta-buttons">
-                    <button class="btn btn-primary" onclick="goToPage('projects')">View My Work</button>
-                    <button class="btn btn-secondary" onclick="goToPage('contact')">Get In Touch</button>
-                </div>
+            <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/e3212349-0c89-477d-b2b4-f48328e5e268" alt="Akshat Kapoor" class="profile-img">
+            <h1>Akshat Kapoor</h1>
+            <p class="subtitle">AI/ML Engineer | Gen AI Specialist | Full-Stack Developer</p>
+            <p>Building intelligent AI solutions with expertise in Generative AI, NLP, and Deep Learning. Creator of <strong>Suraksha AI</strong> - a next-generation flood monitoring system with 95% accuracy. BTech CSE (Data Science) @ Chandigarh Group of Colleges | Rank #144 GeeksforGeeks.</p>
+            <div>
+                <button class="btn btn-primary" onclick="goToPage('projects')">View My Work</button>
+                <button class="btn btn-secondary" onclick="goToPage('contact')">Get In Touch</button>
             </div>
         </section>
     </div>
@@ -954,8 +621,8 @@
     <div id="about" class="page">
         <section>
             <h2>About Me</h2>
-            <div class="about-grid">
-                <div class="about-text">
+            <div class="two-col">
+                <div>
                     <p><span class="highlight">Dedicated AI/ML Engineer</span> with strong expertise in Artificial Intelligence, software development, and building intelligent solutions. Specializing in <span class="highlight">Generative AI, NLP, and system optimization</span>.</p>
                     <p>Currently serving as <span class="highlight">Head of Public Collaboration</span> at Emergians (Dept. of Emerging Technologies) at Chandigarh Group of Colleges, leading technical events, innovation initiatives, and departmental outreach.</p>
                     <p>Completed intensive <span class="highlight">Gen AI training at Grazitti Interactive</span>, mastering LLMs, prompt engineering, RAG systems, and AI-powered application development. Active in competitive programming with <span class="highlight">Rank #144 on GeeksforGeeks</span> and <span class="highlight">Rank #178 on HackerRank</span>.</p>
@@ -963,10 +630,10 @@
                     <p><strong>Key Strengths:</strong> Team Leadership • Pressure Handling • Collaborative Problem-Solving • Technical Communication • Rapid Prototyping</p>
                 </div>
                 <div>
-                    <h3 style="color: var(--secondary); margin-bottom: 1.5rem;">📊 Key Stats</h3>
+                    <h3 style="color: var(--secondary); margin-bottom: 1rem; font-size: 1.1rem;">📊 Key Stats</h3>
                     <div class="stat-grid">
                         <div class="stat-card">
-                            <div class="stat-number">4+</div>
+                            <div class="stat-number">10+</div>
                             <div class="stat-label">AI/ML Projects</div>
                         </div>
                         <div class="stat-card">
@@ -978,7 +645,7 @@
                             <div class="stat-label">GFG Rank</div>
                         </div>
                         <div class="stat-card">
-                            <div class="stat-number">3</div>
+                            <div class="stat-number">6+</div>
                             <div class="stat-label">Hackathons</div>
                         </div>
                     </div>
@@ -991,9 +658,9 @@
     <div id="skills" class="page">
         <section>
             <h2>Technical Skills & Expertise</h2>
-            <div class="about-grid">
+            <div class="two-col">
                 <div>
-                    <h3 style="color: var(--secondary); margin-bottom: 1.5rem;">🤖 AI & Machine Learning</h3>
+                    <h3 style="color: var(--secondary); margin-bottom: 1rem; font-size: 1.1rem;">🤖 AI & Machine Learning</h3>
                     <p><strong>Generative AI & LLMs</strong> • Advanced expertise in cutting-edge large language models and generative AI applications</p>
                     <p><strong>NLP & Transformers</strong> • Proficient in transformer architectures and natural language processing pipelines</p>
                     <p><strong>Prompt Engineering</strong> • Skilled in crafting effective prompts and optimizing LLM interactions</p>
@@ -1001,53 +668,12 @@
                     <p><strong>Sentiment Analysis</strong> • Expert in emotion detection and sentiment classification using deep learning</p>
                 </div>
                 <div>
-                    <h3 style="color: var(--secondary); margin-bottom: 1.5rem;">💻 Programming & Development</h3>
+                    <h3 style="color: var(--secondary); margin-bottom: 1rem; font-size: 1.1rem;">💻 Programming & Development</h3>
                     <p><strong>Python</strong> • Comprehensive knowledge of Python for data science, ML, and backend development</p>
                     <p><strong>React & JavaScript</strong> • Full-stack frontend development with modern React frameworks and JavaScript</p>
                     <p><strong>Django & Backend</strong> • Robust backend architecture using Django and RESTful API design</p>
                     <p><strong>C++ & DSA</strong> • Strong foundation in data structures, algorithms, and competitive programming</p>
                     <p><strong>SQL & Databases</strong> • Proficient in database design, optimization, and SQL query management</p>
-                </div>
-            </div>
-            
-            <div style="margin-top: 4rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
-                <h3 style="color: var(--secondary); margin-bottom: 2rem; text-align: center;">Other Technical Competencies</h3>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h4>🛠️ Tools & Frameworks</h4>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Streamlit</span>
-                            <span class="skill-tag">Tableau</span>
-                            <span class="skill-tag">Next.js</span>
-                            <span class="skill-tag">Firebase</span>
-                            <span class="skill-tag">MySQL</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h4>📊 Data Science</h4>
-                        <div class="skill-tags">
-                            <span class="skill-tag">EDA & DV</span>
-                            <span class="skill-tag">Pandas</span>
-                            <span class="skill-tag">NumPy</span>
-                            <span class="skill-tag">Scikit-learn</span>
-                            <span class="skill-tag">TensorFlow</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h4>🖥️ Operating Systems</h4>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Windows</span>
-                            <span class="skill-tag">Linux (Ubuntu)</span>
-                            <span class="skill-tag">Git/GitHub</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h4>🗣️ Languages</h4>
-                        <div class="skill-tags">
-                            <span class="skill-tag">English</span>
-                            <span class="skill-tag">Hindi</span>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -1059,38 +685,103 @@
             <h2>Experience & Leadership</h2>
             <div class="timeline">
                 <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Head of Public Collaboration</h3>
-                        <p class="role">Emergians - Dept. of Emerging Technologies</p>
-                        <p class="duration">Aug 2025 - Present</p>
-                        <p>Leading public collaboration and outreach initiatives. Managing technical events, workshops, and seminars in AI, Data Science, and emerging technologies. Strengthening department's visibility and innovation ecosystem.</p>
+                    <h3>Head of Public Collaboration</h3>
+                    <p class="role">Emergians - Dept. of Emerging Technologies</p>
+                    <p class="duration">Aug 2025 - Present</p>
+                    <p>Leading public collaboration and outreach initiatives. Managing technical events, workshops, and seminars in AI, Data Science, and emerging technologies.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Gen AI Internship & Training</h3>
+                    <p class="role">Grazitti Interactive</p>
+                    <p class="duration">Jun 2025 - Jul 2025</p>
+                    <p>Completed intensive Gen AI certification. Focused on LLMs, prompt engineering, NLP pipelines, and building AI-powered applications with Streamlit.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Hackathon Participant & Developer</h3>
+                    <p class="role">Multiple Hackathons</p>
+                    <p class="duration">2024 - Present</p>
+                    <p>Participated in GHCI 25 (AnitaB.org), Zero to One, and Smart India Hackathons. Developed end-to-end AI/ML solutions integrating frontend, backend, and ML models.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Projects Page -->
+    <div id="projects" class="page">
+        <section>
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%232198CD;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%2300d4ff;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23grad)' width='400' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='48' fill='white' text-anchor='middle' dominant-baseline='middle' font-weight='bold'%3E🌊 SURAKSHA AI%3C/text%3E%3C/svg%3E" alt="Suraksha AI" class="project-image">
+                    <div class="project-body">
+                        <h3>Suraksha AI - Flood Monitoring System</h3>
+                        <p>Advanced AI-powered real-time flood risk prediction system combining satellite data integration, ML-based predictive models with 95% accuracy, and intelligent alerting for 20+ cities.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">Next.js</span>
+                            <span class="tech-badge">React</span>
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">TensorFlow</span>
+                            <span class="tech-badge">Satellite APIs</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://suraksha-ai-next-gen-flood-monitering-201lcnfcl.vercel.app/" target="_blank">🚀 Live Demo</a>
+                            <a href="https://github.com/Akshat2006ui/SURAKSHA-AI" target="_blank">💻 GitHub</a>
+                        </div>
                     </div>
                 </div>
 
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Gen AI Internship & Training</h3>
-                        <p class="role">Grazitti Interactive - Training & Consulting</p>
-                        <p class="duration">Jun 2025 - Jul 2025</p>
-                        <p>Completed intensive Gen AI certification. Focused on LLMs, prompt engineering, NLP pipelines, and building AI-powered applications with Streamlit. Practical implementation of GenAI solutions.</p>
+                <div class="project-card">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Cdefs%3E%3ClinearGradient id='grad2' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23667eea;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23764ba2;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23grad2)' width='400' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='40' fill='white' text-anchor='middle' dominant-baseline='middle' font-weight='bold'%3E💬 Sentiment%3C/text%3E%3C/svg%3E" alt="Sentiment Analysis" class="project-image">
+                    <div class="project-body">
+                        <h3>Customer Chat & Sentiment Analysis</h3>
+                        <p>Real-time NLP-powered sentiment analysis dashboard for customer interactions. Advanced emotion detection, intent classification, and business intelligence generation.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">Streamlit</span>
+                            <span class="tech-badge">NLP</span>
+                            <span class="tech-badge">Transformers</span>
+                            <span class="tech-badge">HuggingFace</span>
+                            <span class="tech-badge">Python</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://customer-chat-and-sentiment-analysis-dashboard-28fyfrcstspagto.streamlit.app/" target="_blank">🚀 Live Demo</a>
+                            <a href="https://github.com/Akshat2006ui" target="_blank">💻 GitHub</a>
+                        </div>
                     </div>
                 </div>
 
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Hackathon Participant & Developer</h3>
-                        <p class="role">Multiple Hackathons</p>
-                        <p class="duration">2024 - Present</p>
-                        <p>Actively participated in GHCI 25 (AnitaB.org), Zero to One, and Smart India Hackathons. Developed end-to-end AI/ML solutions integrating frontend, backend, and ML models under tight constraints.</p>
+                <div class="project-card">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Cdefs%3E%3ClinearGradient id='grad3' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2351cf66;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%2338a169;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23grad3)' width='400' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='40' fill='white' text-anchor='middle' dominant-baseline='middle' font-weight='bold'%3E📊 Flood Analysis%3C/text%3E%3C/svg%3E" alt="Flood Dashboard" class="project-image">
+                    <div class="project-body">
+                        <h3>Punjab Flood Response Sentiment Analysis</h3>
+                        <p>Streamlit-based system analyzing public emotions from social media during flood events. Real-time sentiment tracking and trend analysis for disaster response coordination.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">Streamlit</span>
+                            <span class="tech-badge">NLP</span>
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">Tableau</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://flood-analysis-wzhbjuvcdhjrlwxerhfjam.streamlit.app/" target="_blank">🚀 Live Demo</a>
+                            <a href="https://github.com/Akshat2006ui" target="_blank">💻 GitHub</a>
+                        </div>
                     </div>
                 </div>
 
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Competitive Programming & DSA</h3>
-                        <p class="role">Active Problem Solver</p>
-                        <p class="duration">2023 - Present</p>
-                        <p>Rank #144 on GeeksforGeeks (DSA Excellence), Rank #178 on HackerRank. Consistent high-performance problem-solving across LeetCode, CodeChef, and Codeforces. Specializing in algorithms, data structures, and system design patterns.</p>
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&h=400&fit=crop" alt="AI Hackathon" class="project-image">
+                    <div class="project-body">
+                        <h3>AI Hackathon Project Suite</h3>
+                        <p>Comprehensive portfolio of AI-driven solutions developed across GHCI 25, Zero to One, and Smart India Hackathons. Production-ready applications built under 24-48 hour constraints with LLMs, RAG pipelines, and full-stack integration.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">Gen AI</span>
+                            <span class="tech-badge">LLMs</span>
+                            <span class="tech-badge">RAG Systems</span>
+                            <span class="tech-badge">React</span>
+                            <span class="tech-badge">Python</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Akshat2006ui" target="_blank">💻 View Projects</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1103,319 +794,22 @@
             <h2>Education & Achievements</h2>
             <div class="timeline">
                 <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Bachelor of Technology (CSE - Data Science)</h3>
-                        <p class="role">Chandigarh Group of Colleges, Landran</p>
-                        <p class="duration">2023 - 2027</p>
-                        <p><strong>CGPA: 8.17/10</strong> | Specialization in Artificial Intelligence, Machine Learning, and Data Science. Actively involved in technical clubs, hackathons, and research projects.</p>
-                    </div>
+                    <h3>Bachelor of Technology (CSE - Data Science)</h3>
+                    <p class="role">Chandigarh Group of Colleges, Landran</p>
+                    <p class="duration">2023 - 2027</p>
+                    <p><strong>CGPA: 8.17/10</strong> | Specialization in Artificial Intelligence, Machine Learning, and Data Science. Actively involved in technical clubs, hackathons, and research projects.</p>
                 </div>
-
                 <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Senior Secondary (CBSE)</h3>
-                        <p class="role">Montfort School, Roorkee, Uttarakhand</p>
-                        <p class="duration">2021 - 2023</p>
-                        <p><strong>Percentage: 82%</strong> | Strong foundation in Mathematics, Physics, and Computer Science fundamentals.</p>
-                    </div>
+                    <h3>Senior Secondary (CBSE)</h3>
+                    <p class="role">Montfort School, Roorkee, Uttarakhand</p>
+                    <p class="duration">2021 - 2023</p>
+                    <p><strong>Percentage: 82%</strong> | Strong foundation in Mathematics, Physics, and Computer Science fundamentals.</p>
                 </div>
-
                 <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Secondary Education (CBSE)</h3>
-                        <p class="role">Montfort School, Roorkee, Uttarakhand</p>
-                        <p class="duration">2020 - 2021</p>
-                        <p><strong>Percentage: 96.2%</strong> | Exceptional academic performance across all subjects including Mathematics and Science.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div style="margin-top: 4rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
-                <h3 style="color: var(--secondary); margin-bottom: 2rem; text-align: center;">Academic Certifications & Achievements</h3>
-                <div class="projects-grid">
-                    <div class="project-card" style="border-color: var(--secondary); background: rgba(0, 212, 255, 0.05);">
-                        <div class="project-card-body">
-                            <h3 style="color: var(--secondary); margin-bottom: 0.5rem;">🏆 SWAYAM Certification</h3>
-                            <p style="color: var(--text-dark); margin-bottom: 0.5rem;">Data Structures using C (4 Credits)</p>
-                            <p style="color: var(--text-dark); font-size: 0.9rem;">Successfully completed NPTEL SWAYAM course on Data Structures and Algorithms with honors, earning 4 academic credits.</p>
-                        </div>
-                    </div>
-
-                    <div class="project-card" style="border-color: var(--secondary); background: rgba(0, 212, 255, 0.05);">
-                        <div class="project-card-body">
-                            <h3 style="color: var(--secondary); margin-bottom: 0.5rem;">🎯 Zero to One Hackathon</h3>
-                            <p style="color: var(--text-dark); margin-bottom: 0.5rem;">Hackathon Certification</p>
-                            <p style="color: var(--text-dark); font-size: 0.9rem;">Completed Zero to One hackathon by Chandigarh University, demonstrating rapid prototyping and innovative problem-solving skills.</p>
-                        </div>
-                    </div>
-
-                    <div class="project-card" style="border-color: var(--secondary); background: rgba(0, 212, 255, 0.05);">
-                        <div class="project-card-body">
-                            <h3 style="color: var(--secondary); margin-bottom: 0.5rem;">🎤 Emergitech 1.0 Best Speaker</h3>
-                            <p style="color: var(--text-dark); margin-bottom: 0.5rem;">Recognition Award</p>
-                            <p style="color: var(--text-dark); font-size: 0.9rem;">Awarded Best Speaker Certificate at Emergitech 1.0 technical symposium for exceptional presentation and communication skills.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- Projects Page -->
-    <div id="projects" class="page">
-        <section>
-            <div class="section-header">
-                <h2>Featured Projects</h2>
-                <p class="section-subtitle">Innovative AI/ML solutions addressing real-world challenges through cutting-edge technology and creative problem-solving</p>
-            </div>
-            <div class="projects-grid"></div>
-                <div class="project-card featured">
-                    <div class="project-image-overlay">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%232198CD;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%2300d4ff;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23grad)' width='400' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='48' fill='white' text-anchor='middle' dominant-baseline='middle' font-weight='bold'%3E🌊 SURAKSHA AI%3C/text%3E%3Ctext x='50%25' y='75%25' font-size='18' fill='white' text-anchor='middle' font-weight='300'%3EFlood Monitoring%3C/text%3E%3C/svg%3E" alt="Suraksha AI" class="project-image">
-                    </div>
-                    <div class="project-card-body">
-                        <span class="featured-badge">⭐ Featured Project</span>
-                        <div class="project-meta">
-                            <span class="meta-badge">🚀 Production</span>
-                            <span class="meta-badge">🎯 95% Accuracy</span>
-                        </div>
-                        <h3>Suraksha AI</h3>
-                        <h4 style="color: var(--secondary); margin-bottom: 1rem; font-size: 1.05rem;">Next-Gen Flood Monitoring & Prediction System</h4>
-                        <p><strong>Advanced AI-powered real-time flood risk prediction system</strong> combining satellite data integration, ML-based predictive models, and intelligent alerting. Monitors 20+ cities with 95% accuracy.</p>
-                        
-                        <div class="expandable-section" style="margin-top: 1rem;">
-                            <div class="expand-toggle" onclick="toggleExpand(this)">
-                                <span style="color: var(--secondary); font-weight: 600; font-size: 0.95rem;">📋 View Technical Details & Features</span>
-                                <span class="expand-icon">▼</span>
-                            </div>
-                            <div class="expand-content">
-                                <h4 style="color: var(--secondary); margin-bottom: 1rem;">Core Features</h4>
-                                <p><strong>Real-time Satellite Data Processing:</strong> Integrates live satellite imagery and weather data from multiple sources for comprehensive flood risk assessment.</p>
-                                <p><strong>ML Prediction Models:</strong> Utilizes TensorFlow-based machine learning models trained on historical flood data to predict flood risks with 95% accuracy.</p>
-                                <p><strong>Instant Alert System:</strong> Automated SMS and email notifications to affected communities and authorities for rapid response coordination.</p>
-                                <p><strong>Interactive Visualization:</strong> Dynamic dashboards with real-time data visualization, risk heat maps, and historical trend analysis.</p>
-                                <p><strong>Community Risk Assessment:</strong> Localized risk scoring for 20+ cities with population density and infrastructure vulnerability analysis.</p>
-                                
-                                <h4 style="color: var(--secondary); margin: 1.5rem 0 1rem;">🎯 Impact & Outcomes</h4>
-                                <p style="color: var(--secondary); font-weight: 600;">Protects vulnerable communities from flood disasters through advanced early warning system, enabling proactive evacuation and resource allocation.</p>
-                            </div>
-                        </div>
-
-                        <div class="tech-stack" style="margin-top: 1.5rem;">
-                            <span class="tech-badge">Next.js</span>
-                            <span class="tech-badge">React</span>
-                            <span class="tech-badge">Python</span>
-                            <span class="tech-badge">TensorFlow</span>
-                            <span class="tech-badge">Real-time Data</span>
-                            <span class="tech-badge">Satellite APIs</span>
-                            <span class="tech-badge">Vercel</span>
-                        </div>
-                        <div class="project-links" style="margin-top: 1.5rem;">
-                            <a href="https://suraksha-ai-next-gen-flood-monitering-201lcnfcl.vercel.app/" target="_blank">🚀 Live Demo</a>
-                            <a href="https://github.com/Akshat2006ui/SURAKSHA-AI" target="_blank">💻 GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image-overlay">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Cdefs%3E%3ClinearGradient id='grad2' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23667eea;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23764ba2;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23grad2)' width='400' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='40' fill='white' text-anchor='middle' dominant-baseline='middle' font-weight='bold'%3E💬 Sentiment Analysis%3C/text%3E%3Ctext x='50%25' y='75%25' font-size='16' fill='white' text-anchor='middle' font-weight='300'%3EDashboard%3C/text%3E%3C/svg%3E" alt="Sentiment Analysis" class="project-image">
-                    </div>
-                    <div class="project-card-body">
-                        <div class="project-meta">
-                            <span class="meta-badge">🤖 NLP</span>
-                            <span class="meta-badge">⚡ Real-time</span>
-                        </div>
-                        <h3>Customer Chat & Sentiment Analysis</h3>
-                        <p><strong>Real-time NLP-powered sentiment analysis dashboard</strong> for customer interactions. Advanced emotion detection, intent classification, issue clustering, and business intelligence generation from chat conversations.</p>
-                        
-                        <div class="expandable-section" style="margin-top: 1rem;">
-                            <div class="expand-toggle" onclick="toggleExpand(this)">
-                                <span style="color: var(--secondary); font-weight: 600; font-size: 0.95rem;">📋 View Features & Capabilities</span>
-                                <span class="expand-icon">▼</span>
-                            </div>
-                            <div class="expand-content">
-                                <h4 style="color: var(--secondary); margin-bottom: 1rem;">Key Features</h4>
-                                <p><strong>Transformer-based Sentiment Classification:</strong> Utilizes state-of-the-art transformer models from HuggingFace for accurate sentiment detection across positive, negative, and neutral categories.</p>
-                                <p><strong>Emotion Detection:</strong> Advanced emotion recognition identifying joy, anger, sadness, fear, and surprise in customer communications.</p>
-                                <p><strong>Issue Clustering:</strong> Automatic grouping of similar customer concerns using unsupervised learning for pattern identification.</p>
-                                <p><strong>Automated Insights:</strong> AI-generated business intelligence reports highlighting trends, pain points, and opportunities.</p>
-                                <p><strong>Interactive Visualizations:</strong> Dynamic charts and graphs for real-time sentiment tracking and historical analysis.</p>
-                            </div>
-                        </div>
-
-                        <div class="tech-stack" style="margin-top: 1.5rem;">
-                            <span class="tech-badge">Streamlit</span>
-                            <span class="tech-badge">NLP</span>
-                            <span class="tech-badge">Transformers</span>
-                            <span class="tech-badge">HuggingFace</span>
-                            <span class="tech-badge">Python</span>
-                        </div>
-                        <div class="project-links" style="margin-top: 1.5rem;">
-                            <a href="https://customer-chat-and-sentiment-analysis-dashboard-28fyfrcstspagto.streamlit.app/" target="_blank">🚀 Live Demo</a>
-                            <a href="https://github.com/Akshat2006ui" target="_blank">💻 GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image-overlay">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Cdefs%3E%3ClinearGradient id='grad3' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2351cf66;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%2338a169;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23grad3)' width='400' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='40' fill='white' text-anchor='middle' dominant-baseline='middle' font-weight='bold'%3E📊 Flood Analysis%3C/text%3E%3Ctext x='50%25' y='75%25' font-size='16' fill='white' text-anchor='middle' font-weight='300'%3EDashboard%3C/text%3E%3C/svg%3E" alt="Flood Dashboard" class="project-image">
-                    </div>
-                    <div class="project-card-body">
-                        <div class="project-meta">
-                            <span class="meta-badge">📊 Analytics</span>
-                            <span class="meta-badge">🌊 Disaster Response</span>
-                        </div>
-                        <h3>Sentiment Analysis of Punjab Flood Response 2025</h3>
-                        <p><strong>Streamlit-based Flood Sentiment Analysis system</strong> analyzing public emotions from social media during flood events in Punjab. Real-time sentiment tracking, concern identification, and trend analysis for disaster response coordination.</p>
-                        
-                        <div class="expandable-section" style="margin-top: 1rem;">
-                            <div class="expand-toggle" onclick="toggleExpand(this)">
-                                <span style="color: var(--secondary); font-weight: 600; font-size: 0.95rem;">📋 View System Capabilities</span>
-                                <span class="expand-icon">▼</span>
-                            </div>
-                            <div class="expand-content">
-                                <h4 style="color: var(--secondary); margin-bottom: 1rem;">System Features</h4>
-                                <p><strong>Real-time Data Processing:</strong> Continuous monitoring and analysis of social media feeds for flood-related content and public sentiment.</p>
-                                <p><strong>Sentiment Classification:</strong> Multi-class sentiment analysis categorizing public emotions during disaster events.</p>
-                                <p><strong>Trend Visualization:</strong> Interactive Tableau dashboards displaying sentiment trends, geographic distribution, and temporal patterns.</p>
-                                <p><strong>Emergency Sentiment Alerts:</strong> Automated detection of critical sentiment shifts indicating urgent public concerns or emerging issues.</p>
-                                <p><strong>Regional Analysis:</strong> Location-based sentiment mapping for targeted disaster response and resource allocation.</p>
-                            </div>
-                        </div>
-
-                        <div class="tech-stack" style="margin-top: 1.5rem;">
-                            <span class="tech-badge">Streamlit</span>
-                            <span class="tech-badge">NLP</span>
-                            <span class="tech-badge">Python</span>
-                            <span class="tech-badge">Tableau</span>
-                            <span class="tech-badge">Data Viz</span>
-                        </div>
-                        <div class="project-links" style="margin-top: 1.5rem;">
-                            <a href="https://flood-analysis-wzhbjuvcdhjrlwxerhfjam.streamlit.app/" target="_blank">🚀 Live Demo</a>
-                            <a href="https://github.com/Akshat2006ui" target="_blank">💻 GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image-overlay">
-                        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&h=400&fit=crop" alt="AI Hackathon Project Suite" class="project-image">
-                    </div>
-                    <div class="project-card-body">
-                        <div class="project-meta">
-                            <span class="meta-badge">🏆 Multi-Hackathon</span>
-                            <span class="meta-badge">⚡ 2024-2025</span>
-                        </div>
-                        <h3>AI Hackathon Project Suite</h3>
-                        <p><strong>Comprehensive portfolio of AI-driven solutions</strong> developed across multiple national hackathons including GHCI 25 (AnitaB.org's "Unbound with GenAI: Breaking Barriers"), Zero to One by Chandigarh University, and Smart India Hackathon. Each project demonstrates end-to-end development from problem identification to deployment.</p>
-                        
-                        <div class="expandable-section" style="margin-top: 1rem;">
-                            <div class="expand-toggle" onclick="toggleExpand(this)">
-                                <span style="color: var(--secondary); font-weight: 600; font-size: 0.95rem;">📋 View Detailed Outcomes & Skills</span>
-                                <span class="expand-icon">▼</span>
-                            </div>
-                            <div class="expand-content">
-                                <h4 style="color: var(--secondary); margin-bottom: 1rem;">Key Outcomes & Achievements</h4>
-                                <p><strong>Production-Ready Applications:</strong> Built fully functional AI applications under 24-48 hour constraints, demonstrating rapid development capabilities and efficient time management.</p>
-                                <p><strong>Advanced AI Integration:</strong> Integrated Large Language Models (LLMs) with custom Retrieval-Augmented Generation (RAG) pipelines for domain-specific knowledge retrieval, enhancing accuracy and relevance of AI responses.</p>
-                                <p><strong>Full-Stack Development:</strong> Developed complete solutions combining modern React frontends with robust Python ML backends, ensuring seamless user experiences and powerful AI capabilities.</p>
-                                <p><strong>Real-Time Systems:</strong> Implemented real-time data processing and interactive visualization dashboards for immediate insights and decision-making support.</p>
-                                <p><strong>Cross-Functional Collaboration:</strong> Worked effectively with diverse teams to deliver innovative solutions addressing real-world challenges in healthcare, disaster management, and social impact sectors.</p>
-                                
-                                <h4 style="color: var(--secondary); margin: 1.5rem 0 1rem;">🎯 Core Competencies Demonstrated</h4>
-                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.8rem;">
-                                    <div style="background: rgba(0, 212, 255, 0.05); padding: 0.8rem; border-radius: 8px; border-left: 3px solid var(--secondary);">
-                                        <strong style="color: var(--secondary);">Rapid Prototyping</strong>
-                                        <p style="font-size: 0.85rem; margin-top: 0.3rem;">Quick ideation to MVP</p>
-                                    </div>
-                                    <div style="background: rgba(0, 212, 255, 0.05); padding: 0.8rem; border-radius: 8px; border-left: 3px solid var(--secondary);">
-                                        <strong style="color: var(--secondary);">AI/ML Integration</strong>
-                                        <p style="font-size: 0.85rem; margin-top: 0.3rem;">Model deployment & optimization</p>
-                                    </div>
-                                    <div style="background: rgba(0, 212, 255, 0.05); padding: 0.8rem; border-radius: 8px; border-left: 3px solid var(--secondary);">
-                                        <strong style="color: var(--secondary);">Team Leadership</strong>
-                                        <p style="font-size: 0.85rem; margin-top: 0.3rem;">Collaborative problem-solving</p>
-                                    </div>
-                                    <div style="background: rgba(0, 212, 255, 0.05); padding: 0.8rem; border-radius: 8px; border-left: 3px solid var(--secondary);">
-                                        <strong style="color: var(--secondary);">Pressure Handling</strong>
-                                        <p style="font-size: 0.85rem; margin-top: 0.3rem;">Delivering under tight deadlines</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="tech-stack" style="margin-top: 1.5rem;">
-                            <span class="tech-badge">Gen AI</span>
-                            <span class="tech-badge">LLMs</span>
-                            <span class="tech-badge">RAG Systems</span>
-                            <span class="tech-badge">React</span>
-                            <span class="tech-badge">Python</span>
-                            <span class="tech-badge">Streamlit</span>
-                            <span class="tech-badge">APIs</span>
-                            <span class="tech-badge">Real-time Processing</span>
-                        </div>
-                        <div class="project-links" style="margin-top: 1.5rem;">
-                            <a href="https://github.com/Akshat2006ui" target="_blank">💻 View Projects</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- Certifications Page -->
-    <div id="certs" class="page">
-        <section>
-            <h2>Certifications & Achievements</h2>
-            <div class="cert-gallery">
-                <div class="cert-card" onclick="openLightbox('https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/e3212349-0c89-477d-b2b4-f48328e5e268')">
-                    <div class="cert-image" style="background: linear-gradient(135deg, #667eea, #764ba2); display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">📜</div>
-                    <div class="cert-body">
-                        <h3>GeeksforGeeks Rank #144</h3>
-                        <p>DSA Problem-Solving Excellence & Competitive Programming</p>
-                    </div>
-                </div>
-
-                <div class="cert-card" onclick="openLightbox('https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/e3212349-0c89-477d-b2b4-f48328e5e268')">
-                    <div class="cert-image" style="background: linear-gradient(135deg, #f093fb, #f5576c); display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">🥈</div>
-                    <div class="cert-body">
-                        <h3>HackerRank Rank #178</h3>
-                        <p>Problem-Solving & Coding Skills in Algorithm Challenges</p>
-                    </div>
-                </div>
-
-                <div class="cert-card" onclick="openLightbox('https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/e3212349-0c89-477d-b2b4-f48328e5e268')">
-                    <div class="cert-image" style="background: linear-gradient(135deg, #4facfe, #00f2fe); display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">🎓</div>
-                    <div class="cert-body">
-                        <h3>SWAYAM Certification</h3>
-                        <p>Data Structures using C - 4 Credits Course Completed</p>
-                    </div>
-                </div>
-
-                <div class="cert-card" onclick="openLightbox('https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/e3212349-0c89-477d-b2b4-f48328e5e268')">
-                    <div class="cert-image" style="background: linear-gradient(135deg, #fa709a, #fee140); display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">🎯</div>
-                    <div class="cert-body">
-                        <h3>GHCI 2025 Hackathon</h3>
-                        <p>AnitaB.org India - Unbound with GenAI: Breaking Barriers</p>
-                    </div>
-                </div>
-
-                <div class="cert-card" onclick="openLightbox('https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/e3212349-0c89-477d-b2b4-f48328e5e268')">
-                    <div class="cert-image" style="background: linear-gradient(135deg, #a8edea, #fed6e3); display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">🏆</div>
-                    <div class="cert-body">
-                        <h3>Gen AI Training Certification</h3>
-                        <p>Grazitti Interactive - LLMs, NLP, Prompt Engineering</p>
-                    </div>
-                </div>
-
-                <div class="cert-card" onclick="openLightbox('https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/e3212349-0c89-477d-b2b4-f48328e5e268')">
-                    <div class="cert-image" style="background: linear-gradient(135deg, #ff9a56, #ff6a88); display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">⭐</div>
-                    <div class="cert-body">
-                        <h3>Head of Public Collaboration</h3>
-                        <p>Emergians - Dept. of Emerging Technologies Leadership</p>
-                    </div>
+                    <h3>Secondary Education (CBSE)</h3>
+                    <p class="role">Montfort School, Roorkee, Uttarakhand</p>
+                    <p class="duration">2020 - 2021</p>
+                    <p><strong>Percentage: 96.2%</strong> | Exceptional academic performance across all subjects.</p>
                 </div>
             </div>
         </section>
@@ -1426,82 +820,29 @@
         <section>
             <h2>Let's Connect</h2>
             <div class="contact-content">
-                <p>I'm always interested in discussing AI/ML opportunities, collaborations, hackathons, and innovative projects. Feel free to reach out!</p>
+                <p style="color: var(--text-dark); font-size: 0.9rem;">I'm always interested in discussing AI/ML opportunities, collaborations, hackathons, and innovative projects. Feel free to reach out!</p>
                 <div class="contact-links">
                     <a href="https://www.linkedin.com/in/akshat-kapoor-368a0b275" class="contact-link" target="_blank">💼 LinkedIn</a>
                     <a href="https://github.com/Akshat2006ui" class="contact-link" target="_blank">💻 GitHub</a>
                     <a href="mailto:akshatkapoor640@gmail.com" class="contact-link">📧 Email</a>
                     <a href="tel:+918699845663" class="contact-link">📱 Phone</a>
                 </div>
-                <p style="color: var(--text-dark); margin-top: 2rem; font-size: 0.95rem;">
-                    <strong>📧 Email:</strong> akshatkapoor640@gmail.com | cec236030.ds.cec@cgc.edu.in<br>
+                <p style="color: var(--text-dark); margin-top: 2rem; font-size: 0.85rem;">
+                    <strong>📧 Email:</strong> akshatkapoor640@gmail.com<br>
                     <strong>📱 Phone:</strong> +91 8699845663<br>
-                    <strong>🏠 Residence:</strong> Roorkee, Uttarakhand<br>
-                    <strong>🏫 Education:</strong> BTech CSE (Data Science) - Chandigarh Group of Colleges<br>
-                    <strong>👨‍👩‍👧‍👦 Parents:</strong> Vineet Kapoor & Monica Kapoor<br>
+                    <strong>🏠 Location:</strong> Roorkee, Uttarakhand<br>
                     <strong>🎂 DOB:</strong> January 1, 2006
                 </p>
             </div>
         </section>
     </div>
 
-    <!-- Lightbox -->
-    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-        <div class="lightbox-content" onclick="event.stopPropagation()">
-            <button class="lightbox-close" onclick="closeLightbox()">×</button>
-            <img id="lightbox-image" src="" alt="Certificate" class="lightbox-image">
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Akshat Kapoor. All rights reserved. | Built with passion for excellence in AI/ML.</p>
-    </footer>
-
     <script>
-        // Page Navigation
         function goToPage(pageId) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             document.getElementById(pageId).classList.add('active');
             window.scrollTo(0, 0);
-            updateActiveNav(pageId);
         }
-
-        function updateActiveNav(pageId) {
-            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
-            const activeLink = document.querySelector(`[onclick="goToPage('${pageId}')"]`);
-            if (activeLink) activeLink.classList.add('active');
-        }
-
-        // Expandable Content Toggle
-        function toggleExpand(element) {
-            const content = element.nextElementSibling;
-            const icon = element.querySelector('.expand-icon');
-            
-            if (content.classList.contains('active')) {
-                content.classList.remove('active');
-                icon.classList.remove('active');
-            } else {
-                content.classList.add('active');
-                icon.classList.add('active');
-            }
-        }
-
-        // Lightbox
-        function openLightbox(imageSrc) {
-            document.getElementById('lightbox-image').src = imageSrc;
-            document.getElementById('lightbox').classList.add('active');
-        }
-
-        function closeLightbox() {
-            document.getElementById('lightbox').classList.remove('active');
-        }
-
-        // Keyboard navigation
-        document.addEventListener('keydown', e => {
-            if (e.key === 'Escape') closeLightbox();
-        });
     </script>
 </body>
 </html>
-
