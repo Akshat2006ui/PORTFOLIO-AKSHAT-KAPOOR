@@ -84,7 +84,7 @@ Social media sentiment tracker during flood events for disaster response plannin
 Chandigarh Group of Colleges, Landran — CGPA: 8.17/10 :contentReference[oaicite:10]{index=10}
 
 **Senior Secondary & Secondary Education (CBSE)**  
-Montfort School, Roorkee — High academic performance :contentReference[oaicite:11]{index=11}
+Montfort School, Roorkee — High academic performance : 82 % and 96.2 % Respectively
 
 ---
 
@@ -93,8 +93,8 @@ Montfort School, Roorkee — High academic performance :contentReference[oaicite
 I am always open to discussing new projects, collaborations, or AI/ML opportunities.  
 📧 **Email:** akshatkapoor640@gmail.com  
 📞 **Phone:** +91 86998 45663  
-🔗 **LinkedIn:** https://www.linkedin.com/  
-🔗 **GitHub:** https://github.com/akshatkapoor640
+🔗 **LinkedIn:** https://www.linkedin.com/in/akshat-kapoor-368a0b275?
+🔗 **GitHub:** https://github.com/Akshat2006ui/
 
 ---
 
