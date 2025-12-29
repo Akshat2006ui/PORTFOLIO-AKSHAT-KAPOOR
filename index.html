@@ -106,9 +106,85 @@
 
         /* Container */
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 2rem;
+        }
+
+        /* Professional Layout Improvements */
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-subtitle {
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Expandable Content */
+        .expandable-section {
+            margin-bottom: 2rem;
+        }
+
+        .expand-toggle {
+            background: var(--card-bg);
+            border: 1px solid rgba(33, 152, 205, 0.3);
+            padding: 1.5rem;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .expand-toggle:hover {
+            border-color: var(--secondary);
+            background: rgba(33, 152, 205, 0.05);
+        }
+
+        .expand-toggle h3 {
+            color: var(--secondary);
+            margin: 0;
+            font-size: 1.3rem;
+        }
+
+        .expand-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+            transition: transform 0.3s ease;
+        }
+
+        .expand-icon.active {
+            transform: rotate(180deg);
+        }
+
+        .expand-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            background: rgba(26, 44, 74, 0.3);
+            border-radius: 0 0 12px 12px;
+            margin-top: -12px;
+            padding: 0 1.5rem;
+        }
+
+        .expand-content.active {
+            max-height: 2000px;
+            padding: 1.5rem;
+            border: 1px solid rgba(33, 152, 205, 0.2);
+            border-top: none;
+        }
+
+        .expand-content p {
+            color: var(--text-dark);
+            line-height: 1.8;
+            margin-bottom: 1rem;
         }
 
         /* Page Transition */
@@ -243,16 +319,17 @@
 
         /* Sections */
         section {
-            padding: 80px 2rem;
+            padding: 100px 2rem;
         }
 
         section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
             text-align: center;
             background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            font-weight: 700;
         }
 
         /* About Section */
@@ -450,26 +527,27 @@
         /* Projects Grid */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            max-width: 1100px;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 2.5rem;
+            max-width: 1300px;
             margin: 0 auto;
         }
 
         .project-card {
             background: var(--card-bg);
-            border-radius: 12px;
+            border-radius: 16px;
             overflow: hidden;
             border: 1px solid rgba(33, 152, 205, 0.2);
             transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
         .project-card:hover {
             border-color: var(--secondary);
-            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.2);
-            transform: translateY(-10px);
+            box-shadow: 0 12px 45px rgba(0, 212, 255, 0.25);
+            transform: translateY(-8px);
         }
 
         .project-card.featured {
@@ -480,16 +558,50 @@
 
         .project-image {
             width: 100%;
-            height: 200px;
+            height: 220px;
             object-fit: cover;
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
         }
 
+        .project-image-overlay {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image-overlay::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(10, 22, 40, 0.4) 100%);
+        }
+
         .project-card-body {
-            padding: 2rem;
+            padding: 2rem 2rem 1.8rem;
             flex: 1;
             display: flex;
             flex-direction: column;
+        }
+
+        .project-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .meta-badge {
+            background: rgba(0, 212, 255, 0.08);
+            border: 1px solid var(--primary);
+            color: var(--secondary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .featured-badge {
@@ -723,6 +835,7 @@
 
             .projects-grid {
                 grid-template-columns: 1fr;
+                gap: 2rem;
             }
 
             .project-card.featured {
@@ -734,11 +847,23 @@
             }
 
             section {
-                padding: 50px 1rem;
+                padding: 60px 1rem;
             }
 
             section h2 {
-                font-size: 1.8rem;
+                font-size: 2rem;
+            }
+
+            .section-subtitle {
+                font-size: 1rem;
+            }
+
+            .expand-toggle {
+                padding: 1rem;
+            }
+
+            .expand-toggle span:first-child {
+                font-size: 0.85rem;
             }
         }
 
@@ -766,11 +891,28 @@
             }
 
             section h2 {
-                font-size: 1.5rem;
+                font-size: 1.8rem;
+            }
+
+            .section-subtitle {
+                font-size: 0.95rem;
             }
 
             .skills-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .project-card-body {
+                padding: 1.5rem;
+            }
+
+            .project-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .expand-content {
+                padding: 1rem;
             }
         }
     </style>
@@ -1022,17 +1164,44 @@
     <!-- Projects Page -->
     <div id="projects" class="page">
         <section>
-            <h2>Featured Projects</h2>
-            <div class="projects-grid">
+            <div class="section-header">
+                <h2>Featured Projects</h2>
+                <p class="section-subtitle">Innovative AI/ML solutions addressing real-world challenges through cutting-edge technology and creative problem-solving</p>
+            </div>
+            <div class="projects-grid"></div>
                 <div class="project-card featured">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%232198CD;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%2300d4ff;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23grad)' width='400' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='48' fill='white' text-anchor='middle' dominant-baseline='middle' font-weight='bold'%3E🌊 SURAKSHA AI%3C/text%3E%3Ctext x='50%25' y='75%25' font-size='18' fill='white' text-anchor='middle' font-weight='300'%3EFlood Monitoring%3C/text%3E%3C/svg%3E" alt="Suraksha AI" class="project-image">
+                    <div class="project-image-overlay">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%232198CD;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%2300d4ff;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23grad)' width='400' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='48' fill='white' text-anchor='middle' dominant-baseline='middle' font-weight='bold'%3E🌊 SURAKSHA AI%3C/text%3E%3Ctext x='50%25' y='75%25' font-size='18' fill='white' text-anchor='middle' font-weight='300'%3EFlood Monitoring%3C/text%3E%3C/svg%3E" alt="Suraksha AI" class="project-image">
+                    </div>
                     <div class="project-card-body">
                         <span class="featured-badge">⭐ Featured Project</span>
+                        <div class="project-meta">
+                            <span class="meta-badge">🚀 Production</span>
+                            <span class="meta-badge">🎯 95% Accuracy</span>
+                        </div>
                         <h3>Suraksha AI</h3>
-                        <h4 style="color: var(--secondary); margin-bottom: 1rem;">Next-Gen Flood Monitoring & Prediction System</h4>
-                        <p><strong>Advanced AI-powered real-time flood risk prediction system</strong> combining satellite data integration, ML-based predictive models, and intelligent alerting. Monitors 20+ cities with 95% accuracy. Features: Real-time satellite data processing, ML prediction models, Instant SMS/Email alerts, Interactive data visualization, Community risk assessment.</p>
-                        <p style="color: var(--text-dark); font-size: 0.9rem; margin-top: 0.8rem;"><strong>Impact:</strong> Protects vulnerable communities from flood disasters through advanced early warning system.</p>
-                        <div class="tech-stack">
+                        <h4 style="color: var(--secondary); margin-bottom: 1rem; font-size: 1.05rem;">Next-Gen Flood Monitoring & Prediction System</h4>
+                        <p><strong>Advanced AI-powered real-time flood risk prediction system</strong> combining satellite data integration, ML-based predictive models, and intelligent alerting. Monitors 20+ cities with 95% accuracy.</p>
+                        
+                        <div class="expandable-section" style="margin-top: 1rem;">
+                            <div class="expand-toggle" onclick="toggleExpand(this)">
+                                <span style="color: var(--secondary); font-weight: 600; font-size: 0.95rem;">📋 View Technical Details & Features</span>
+                                <span class="expand-icon">▼</span>
+                            </div>
+                            <div class="expand-content">
+                                <h4 style="color: var(--secondary); margin-bottom: 1rem;">Core Features</h4>
+                                <p><strong>Real-time Satellite Data Processing:</strong> Integrates live satellite imagery and weather data from multiple sources for comprehensive flood risk assessment.</p>
+                                <p><strong>ML Prediction Models:</strong> Utilizes TensorFlow-based machine learning models trained on historical flood data to predict flood risks with 95% accuracy.</p>
+                                <p><strong>Instant Alert System:</strong> Automated SMS and email notifications to affected communities and authorities for rapid response coordination.</p>
+                                <p><strong>Interactive Visualization:</strong> Dynamic dashboards with real-time data visualization, risk heat maps, and historical trend analysis.</p>
+                                <p><strong>Community Risk Assessment:</strong> Localized risk scoring for 20+ cities with population density and infrastructure vulnerability analysis.</p>
+                                
+                                <h4 style="color: var(--secondary); margin: 1.5rem 0 1rem;">🎯 Impact & Outcomes</h4>
+                                <p style="color: var(--secondary); font-weight: 600;">Protects vulnerable communities from flood disasters through advanced early warning system, enabling proactive evacuation and resource allocation.</p>
+                            </div>
+                        </div>
+
+                        <div class="tech-stack" style="margin-top: 1.5rem;">
                             <span class="tech-badge">Next.js</span>
                             <span class="tech-badge">React</span>
                             <span class="tech-badge">Python</span>
@@ -1041,7 +1210,7 @@
                             <span class="tech-badge">Satellite APIs</span>
                             <span class="tech-badge">Vercel</span>
                         </div>
-                        <div class="project-links">
+                        <div class="project-links" style="margin-top: 1.5rem;">
                             <a href="https://suraksha-ai-next-gen-flood-monitering-201lcnfcl.vercel.app/" target="_blank">🚀 Live Demo</a>
                             <a href="https://github.com/Akshat2006ui/SURAKSHA-AI" target="_blank">💻 GitHub</a>
                         </div>
@@ -1049,19 +1218,40 @@
                 </div>
 
                 <div class="project-card">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Cdefs%3E%3ClinearGradient id='grad2' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23667eea;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23764ba2;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23grad2)' width='400' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='40' fill='white' text-anchor='middle' dominant-baseline='middle' font-weight='bold'%3E💬 Sentiment Analysis%3C/text%3E%3Ctext x='50%25' y='75%25' font-size='16' fill='white' text-anchor='middle' font-weight='300'%3EDashboard%3C/text%3E%3C/svg%3E" alt="Sentiment Analysis" class="project-image">
+                    <div class="project-image-overlay">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Cdefs%3E%3ClinearGradient id='grad2' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23667eea;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23764ba2;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23grad2)' width='400' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='40' fill='white' text-anchor='middle' dominant-baseline='middle' font-weight='bold'%3E💬 Sentiment Analysis%3C/text%3E%3Ctext x='50%25' y='75%25' font-size='16' fill='white' text-anchor='middle' font-weight='300'%3EDashboard%3C/text%3E%3C/svg%3E" alt="Sentiment Analysis" class="project-image">
+                    </div>
                     <div class="project-card-body">
+                        <div class="project-meta">
+                            <span class="meta-badge">🤖 NLP</span>
+                            <span class="meta-badge">⚡ Real-time</span>
+                        </div>
                         <h3>Customer Chat & Sentiment Analysis</h3>
                         <p><strong>Real-time NLP-powered sentiment analysis dashboard</strong> for customer interactions. Advanced emotion detection, intent classification, issue clustering, and business intelligence generation from chat conversations.</p>
-                        <p style="color: var(--text-dark); font-size: 0.9rem; margin-top: 0.5rem;"><strong>Features:</strong> Transformer-based sentiment classification, emotion detection, issue clustering, automated insights, interactive visualizations.</p>
-                        <div class="tech-stack">
+                        
+                        <div class="expandable-section" style="margin-top: 1rem;">
+                            <div class="expand-toggle" onclick="toggleExpand(this)">
+                                <span style="color: var(--secondary); font-weight: 600; font-size: 0.95rem;">📋 View Features & Capabilities</span>
+                                <span class="expand-icon">▼</span>
+                            </div>
+                            <div class="expand-content">
+                                <h4 style="color: var(--secondary); margin-bottom: 1rem;">Key Features</h4>
+                                <p><strong>Transformer-based Sentiment Classification:</strong> Utilizes state-of-the-art transformer models from HuggingFace for accurate sentiment detection across positive, negative, and neutral categories.</p>
+                                <p><strong>Emotion Detection:</strong> Advanced emotion recognition identifying joy, anger, sadness, fear, and surprise in customer communications.</p>
+                                <p><strong>Issue Clustering:</strong> Automatic grouping of similar customer concerns using unsupervised learning for pattern identification.</p>
+                                <p><strong>Automated Insights:</strong> AI-generated business intelligence reports highlighting trends, pain points, and opportunities.</p>
+                                <p><strong>Interactive Visualizations:</strong> Dynamic charts and graphs for real-time sentiment tracking and historical analysis.</p>
+                            </div>
+                        </div>
+
+                        <div class="tech-stack" style="margin-top: 1.5rem;">
                             <span class="tech-badge">Streamlit</span>
                             <span class="tech-badge">NLP</span>
                             <span class="tech-badge">Transformers</span>
                             <span class="tech-badge">HuggingFace</span>
                             <span class="tech-badge">Python</span>
                         </div>
-                        <div class="project-links">
+                        <div class="project-links" style="margin-top: 1.5rem;">
                             <a href="https://customer-chat-and-sentiment-analysis-dashboard-28fyfrcstspagto.streamlit.app/" target="_blank">🚀 Live Demo</a>
                             <a href="https://github.com/Akshat2006ui" target="_blank">💻 GitHub</a>
                         </div>
@@ -1069,19 +1259,40 @@
                 </div>
 
                 <div class="project-card">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Cdefs%3E%3ClinearGradient id='grad3' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2351cf66;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%2338a169;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23grad3)' width='400' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='40' fill='white' text-anchor='middle' dominant-baseline='middle' font-weight='bold'%3E📊 Flood Analysis%3C/text%3E%3Ctext x='50%25' y='75%25' font-size='16' fill='white' text-anchor='middle' font-weight='300'%3EDashboard%3C/text%3E%3C/svg%3E" alt="Flood Dashboard" class="project-image">
+                    <div class="project-image-overlay">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Cdefs%3E%3ClinearGradient id='grad3' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2351cf66;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%2338a169;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23grad3)' width='400' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='40' fill='white' text-anchor='middle' dominant-baseline='middle' font-weight='bold'%3E📊 Flood Analysis%3C/text%3E%3Ctext x='50%25' y='75%25' font-size='16' fill='white' text-anchor='middle' font-weight='300'%3EDashboard%3C/text%3E%3C/svg%3E" alt="Flood Dashboard" class="project-image">
+                    </div>
                     <div class="project-card-body">
+                        <div class="project-meta">
+                            <span class="meta-badge">📊 Analytics</span>
+                            <span class="meta-badge">🌊 Disaster Response</span>
+                        </div>
                         <h3>Sentiment Analysis of Punjab Flood Response 2025</h3>
                         <p><strong>Streamlit-based Flood Sentiment Analysis system</strong> analyzing public emotions from social media during flood events in Punjab. Real-time sentiment tracking, concern identification, and trend analysis for disaster response coordination.</p>
-                        <p style="color: var(--text-dark); font-size: 0.9rem; margin-top: 0.5rem;"><strong>Features:</strong> Real-time data processing, sentiment classification, trend visualization, emergency sentiment alerts, regional analysis.</p>
-                        <div class="tech-stack">
+                        
+                        <div class="expandable-section" style="margin-top: 1rem;">
+                            <div class="expand-toggle" onclick="toggleExpand(this)">
+                                <span style="color: var(--secondary); font-weight: 600; font-size: 0.95rem;">📋 View System Capabilities</span>
+                                <span class="expand-icon">▼</span>
+                            </div>
+                            <div class="expand-content">
+                                <h4 style="color: var(--secondary); margin-bottom: 1rem;">System Features</h4>
+                                <p><strong>Real-time Data Processing:</strong> Continuous monitoring and analysis of social media feeds for flood-related content and public sentiment.</p>
+                                <p><strong>Sentiment Classification:</strong> Multi-class sentiment analysis categorizing public emotions during disaster events.</p>
+                                <p><strong>Trend Visualization:</strong> Interactive Tableau dashboards displaying sentiment trends, geographic distribution, and temporal patterns.</p>
+                                <p><strong>Emergency Sentiment Alerts:</strong> Automated detection of critical sentiment shifts indicating urgent public concerns or emerging issues.</p>
+                                <p><strong>Regional Analysis:</strong> Location-based sentiment mapping for targeted disaster response and resource allocation.</p>
+                            </div>
+                        </div>
+
+                        <div class="tech-stack" style="margin-top: 1.5rem;">
                             <span class="tech-badge">Streamlit</span>
                             <span class="tech-badge">NLP</span>
                             <span class="tech-badge">Python</span>
                             <span class="tech-badge">Tableau</span>
                             <span class="tech-badge">Data Viz</span>
                         </div>
-                        <div class="project-links">
+                        <div class="project-links" style="margin-top: 1.5rem;">
                             <a href="https://flood-analysis-wzhbjuvcdhjrlwxerhfjam.streamlit.app/" target="_blank">🚀 Live Demo</a>
                             <a href="https://github.com/Akshat2006ui" target="_blank">💻 GitHub</a>
                         </div>
@@ -1089,13 +1300,53 @@
                 </div>
 
                 <div class="project-card">
-                    <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/e3212349-0c89-477d-b2b4-f48328e5e268" alt="AI Hackathon Project Suite" class="project-image" style="object-fit: cover; filter: brightness(0.7);">
+                    <div class="project-image-overlay">
+                        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&h=400&fit=crop" alt="AI Hackathon Project Suite" class="project-image">
+                    </div>
                     <div class="project-card-body">
+                        <div class="project-meta">
+                            <span class="meta-badge">🏆 Multi-Hackathon</span>
+                            <span class="meta-badge">⚡ 2024-2025</span>
+                        </div>
                         <h3>AI Hackathon Project Suite</h3>
                         <p><strong>Comprehensive portfolio of AI-driven solutions</strong> developed across multiple national hackathons including GHCI 25 (AnitaB.org's "Unbound with GenAI: Breaking Barriers"), Zero to One by Chandigarh University, and Smart India Hackathon. Each project demonstrates end-to-end development from problem identification to deployment.</p>
-                        <p style="color: var(--text-dark); font-size: 0.9rem; margin-top: 0.8rem;"><strong>Key Outcomes:</strong> Built production-ready AI applications under 24-48 hour constraints, integrated LLMs with custom RAG pipelines for domain-specific knowledge retrieval, developed full-stack solutions combining React frontends with Python ML backends, implemented real-time data processing and visualization dashboards, and collaborated with cross-functional teams to deliver innovative solutions addressing real-world challenges in healthcare, disaster management, and social impact.</p>
-                        <p style="color: var(--secondary); font-size: 0.9rem; margin-top: 0.8rem; font-weight: 600;">🏆 Demonstrated Skills: Rapid prototyping • AI/ML model integration • Full-stack development • Team collaboration • Pressure handling • Creative problem-solving</p>
-                        <div class="tech-stack">
+                        
+                        <div class="expandable-section" style="margin-top: 1rem;">
+                            <div class="expand-toggle" onclick="toggleExpand(this)">
+                                <span style="color: var(--secondary); font-weight: 600; font-size: 0.95rem;">📋 View Detailed Outcomes & Skills</span>
+                                <span class="expand-icon">▼</span>
+                            </div>
+                            <div class="expand-content">
+                                <h4 style="color: var(--secondary); margin-bottom: 1rem;">Key Outcomes & Achievements</h4>
+                                <p><strong>Production-Ready Applications:</strong> Built fully functional AI applications under 24-48 hour constraints, demonstrating rapid development capabilities and efficient time management.</p>
+                                <p><strong>Advanced AI Integration:</strong> Integrated Large Language Models (LLMs) with custom Retrieval-Augmented Generation (RAG) pipelines for domain-specific knowledge retrieval, enhancing accuracy and relevance of AI responses.</p>
+                                <p><strong>Full-Stack Development:</strong> Developed complete solutions combining modern React frontends with robust Python ML backends, ensuring seamless user experiences and powerful AI capabilities.</p>
+                                <p><strong>Real-Time Systems:</strong> Implemented real-time data processing and interactive visualization dashboards for immediate insights and decision-making support.</p>
+                                <p><strong>Cross-Functional Collaboration:</strong> Worked effectively with diverse teams to deliver innovative solutions addressing real-world challenges in healthcare, disaster management, and social impact sectors.</p>
+                                
+                                <h4 style="color: var(--secondary); margin: 1.5rem 0 1rem;">🎯 Core Competencies Demonstrated</h4>
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.8rem;">
+                                    <div style="background: rgba(0, 212, 255, 0.05); padding: 0.8rem; border-radius: 8px; border-left: 3px solid var(--secondary);">
+                                        <strong style="color: var(--secondary);">Rapid Prototyping</strong>
+                                        <p style="font-size: 0.85rem; margin-top: 0.3rem;">Quick ideation to MVP</p>
+                                    </div>
+                                    <div style="background: rgba(0, 212, 255, 0.05); padding: 0.8rem; border-radius: 8px; border-left: 3px solid var(--secondary);">
+                                        <strong style="color: var(--secondary);">AI/ML Integration</strong>
+                                        <p style="font-size: 0.85rem; margin-top: 0.3rem;">Model deployment & optimization</p>
+                                    </div>
+                                    <div style="background: rgba(0, 212, 255, 0.05); padding: 0.8rem; border-radius: 8px; border-left: 3px solid var(--secondary);">
+                                        <strong style="color: var(--secondary);">Team Leadership</strong>
+                                        <p style="font-size: 0.85rem; margin-top: 0.3rem;">Collaborative problem-solving</p>
+                                    </div>
+                                    <div style="background: rgba(0, 212, 255, 0.05); padding: 0.8rem; border-radius: 8px; border-left: 3px solid var(--secondary);">
+                                        <strong style="color: var(--secondary);">Pressure Handling</strong>
+                                        <p style="font-size: 0.85rem; margin-top: 0.3rem;">Delivering under tight deadlines</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tech-stack" style="margin-top: 1.5rem;">
                             <span class="tech-badge">Gen AI</span>
                             <span class="tech-badge">LLMs</span>
                             <span class="tech-badge">RAG Systems</span>
@@ -1105,7 +1356,7 @@
                             <span class="tech-badge">APIs</span>
                             <span class="tech-badge">Real-time Processing</span>
                         </div>
-                        <div class="project-links">
+                        <div class="project-links" style="margin-top: 1.5rem;">
                             <a href="https://github.com/Akshat2006ui" target="_blank">💻 View Projects</a>
                         </div>
                     </div>
@@ -1222,6 +1473,20 @@
             if (activeLink) activeLink.classList.add('active');
         }
 
+        // Expandable Content Toggle
+        function toggleExpand(element) {
+            const content = element.nextElementSibling;
+            const icon = element.querySelector('.expand-icon');
+            
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                icon.classList.remove('active');
+            } else {
+                content.classList.add('active');
+                icon.classList.add('active');
+            }
+        }
+
         // Lightbox
         function openLightbox(imageSrc) {
             document.getElementById('lightbox-image').src = imageSrc;
@@ -1239,3 +1504,4 @@
     </script>
 </body>
 </html>
+
