@@ -282,6 +282,65 @@
             gap: 1.5rem;
         }
 
+        .skill-bar {
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-bar-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .skill-bar-container {
+            width: 100%;
+            height: 8px;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--primary);
+        }
+
+        .skill-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--secondary) 0%, var(--primary) 100%);
+            border-radius: 10px;
+            transition: width 0.8s ease;
+        }
+
+        .stat-card {
+            background: rgba(0, 212, 255, 0.05);
+            border: 1px solid var(--primary);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            color: var(--secondary);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-dark);
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
         .skill-category h4 {
             color: var(--secondary);
             margin-bottom: 0.8rem;
@@ -724,9 +783,10 @@
             <ul>
                 <li><a href="#" onclick="goToPage('home')" class="nav-link">Home</a></li>
                 <li><a href="#" onclick="goToPage('about')" class="nav-link">About</a></li>
+                <li><a href="#" onclick="goToPage('skills')" class="nav-link">Skills</a></li>
                 <li><a href="#" onclick="goToPage('experience')" class="nav-link">Experience</a></li>
                 <li><a href="#" onclick="goToPage('projects')" class="nav-link">Projects</a></li>
-                <li><a href="#" onclick="goToPage('certs')" class="nav-link">Certifications</a></li>
+                <li><a href="#" onclick="goToPage('education')" class="nav-link">Education</a></li>
                 <li><a href="#" onclick="goToPage('contact')" class="nav-link">Contact</a></li>
             </ul>
         </div>
@@ -738,8 +798,8 @@
             <div class="hero-content">
                 <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/e3212349-0c89-477d-b2b4-f48328e5e268" alt="Akshat Kapoor" class="profile-img">
                 <h1>Akshat Kapoor</h1>
-                <p class="subtitle">AI/ML Engineer & Full-Stack Developer</p>
-                <p>Specialized in Generative AI, NLP, and building intelligent solutions. Creator of Suraksha AI - Next-Gen Flood Monitoring System. BTech CSE (Data Science) @ Chandigarh Group of Colleges.</p>
+                <p class="subtitle">AI/ML Engineer | Gen AI Specialist | Full-Stack Developer</p>
+                <p>Building intelligent AI solutions with expertise in Generative AI, NLP, and Deep Learning. Creator of <strong>Suraksha AI</strong> - a next-generation flood monitoring system with 95% accuracy. BTech CSE (Data Science) @ Chandigarh Group of Colleges | Rank #144 GeeksforGeeks.</p>
                 <div class="cta-buttons">
                     <button class="btn btn-primary" onclick="goToPage('projects')">View My Work</button>
                     <button class="btn btn-secondary" onclick="goToPage('contact')">Get In Touch</button>
@@ -754,49 +814,96 @@
             <h2>About Me</h2>
             <div class="about-grid">
                 <div class="about-text">
-                    <p>I'm a <span class="highlight">BTech CSE (Data Science)</span> student from Chandigarh Group of Colleges, specializing in <span class="highlight">Generative AI, Machine Learning, and NLP</span>.</p>
-                    <p>Currently serving as <span class="highlight">Head of Public Collaboration</span> at Emergians (Dept. of Emerging Technologies), where I lead technical events and innovation initiatives.</p>
-                    <p>Recently completed intensive <span class="highlight">Gen AI training at Grazitti Interactive</span>, focusing on LLMs, prompt engineering, and building AI-powered applications.</p>
-                    <p>My journey includes building <span class="highlight">Suraksha AI</span> - a next-generation flood monitoring system with real-time predictions, full-stack web development, competitive programming, and multiple hackathon participations.</p>
+                    <p><span class="highlight">Dedicated AI/ML Engineer</span> with strong expertise in Artificial Intelligence, software development, and building intelligent solutions. Specializing in <span class="highlight">Generative AI, NLP, and system optimization</span>.</p>
+                    <p>Currently serving as <span class="highlight">Head of Public Collaboration</span> at Emergians (Dept. of Emerging Technologies) at Chandigarh Group of Colleges, leading technical events, innovation initiatives, and departmental outreach.</p>
+                    <p>Completed intensive <span class="highlight">Gen AI training at Grazitti Interactive</span>, mastering LLMs, prompt engineering, RAG systems, and AI-powered application development. Active in competitive programming with <span class="highlight">Rank #144 on GeeksforGeeks</span> and <span class="highlight">Rank #178 on HackerRank</span>.</p>
+                    <p>Creator of <span class="highlight">Suraksha AI</span> - an advanced flood monitoring system using satellite data integration, ML prediction models with 95% accuracy, real-time alerts, and full-stack architecture. Multi-hackathon participant (GHCI 25, Zero to One, Smart India Hackathon).</p>
+                    <p><strong>Key Strengths:</strong> Team Leadership • Pressure Handling • Collaborative Problem-Solving • Technical Communication • Rapid Prototyping</p>
                 </div>
                 <div>
-                    <h3 style="color: var(--secondary); margin-bottom: 1.5rem;">Core Competencies</h3>
-                    <div class="skills-grid">
-                        <div class="skill-category">
-                            <h4>🤖 Gen AI & LLMs</h4>
-                            <div class="skill-tags">
-                                <span class="skill-tag">Gen AI</span>
-                                <span class="skill-tag">LLMs</span>
-                                <span class="skill-tag">Prompt Engineering</span>
-                                <span class="skill-tag">RAG</span>
-                            </div>
+                    <h3 style="color: var(--secondary); margin-bottom: 1.5rem;">📊 Key Stats</h3>
+                    <div class="stat-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">4+</div>
+                            <div class="stat-label">AI/ML Projects</div>
                         </div>
-                        <div class="skill-category">
-                            <h4>🧠 NLP & ML</h4>
-                            <div class="skill-tags">
-                                <span class="skill-tag">NLP</span>
-                                <span class="skill-tag">Sentiment Analysis</span>
-                                <span class="skill-tag">Transformers</span>
-                                <span class="skill-tag">EDA & DV</span>
-                            </div>
+                        <div class="stat-card">
+                            <div class="stat-number">8.17</div>
+                            <div class="stat-label">CGPA</div>
                         </div>
-                        <div class="skill-category">
-                            <h4>💻 Languages</h4>
-                            <div class="skill-tags">
-                                <span class="skill-tag">Python</span>
-                                <span class="skill-tag">C++</span>
-                                <span class="skill-tag">JavaScript</span>
-                                <span class="skill-tag">R</span>
-                            </div>
+                        <div class="stat-card">
+                            <div class="stat-number">#144</div>
+                            <div class="stat-label">GFG Rank</div>
                         </div>
-                        <div class="skill-category">
-                            <h4>🛠️ Tech Stack</h4>
-                            <div class="skill-tags">
-                                <span class="skill-tag">React</span>
-                                <span class="skill-tag">Django</span>
-                                <span class="skill-tag">Streamlit</span>
-                                <span class="skill-tag">Tableau</span>
-                            </div>
+                        <div class="stat-card">
+                            <div class="stat-number">3</div>
+                            <div class="stat-label">Hackathons</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Skills Page -->
+    <div id="skills" class="page">
+        <section>
+            <h2>Technical Skills & Expertise</h2>
+            <div class="about-grid">
+                <div>
+                    <h3 style="color: var(--secondary); margin-bottom: 1.5rem;">🤖 AI & Machine Learning</h3>
+                    <p><strong>Generative AI & LLMs</strong> • Advanced expertise in cutting-edge large language models and generative AI applications</p>
+                    <p><strong>NLP & Transformers</strong> • Proficient in transformer architectures and natural language processing pipelines</p>
+                    <p><strong>Prompt Engineering</strong> • Skilled in crafting effective prompts and optimizing LLM interactions</p>
+                    <p><strong>RAG Systems</strong> • Experienced in Retrieval-Augmented Generation for enhanced AI applications</p>
+                    <p><strong>Sentiment Analysis</strong> • Expert in emotion detection and sentiment classification using deep learning</p>
+                </div>
+                <div>
+                    <h3 style="color: var(--secondary); margin-bottom: 1.5rem;">💻 Programming & Development</h3>
+                    <p><strong>Python</strong> • Comprehensive knowledge of Python for data science, ML, and backend development</p>
+                    <p><strong>React & JavaScript</strong> • Full-stack frontend development with modern React frameworks and JavaScript</p>
+                    <p><strong>Django & Backend</strong> • Robust backend architecture using Django and RESTful API design</p>
+                    <p><strong>C++ & DSA</strong> • Strong foundation in data structures, algorithms, and competitive programming</p>
+                    <p><strong>SQL & Databases</strong> • Proficient in database design, optimization, and SQL query management</p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 4rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
+                <h3 style="color: var(--secondary); margin-bottom: 2rem; text-align: center;">Other Technical Competencies</h3>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>🛠️ Tools & Frameworks</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Streamlit</span>
+                            <span class="skill-tag">Tableau</span>
+                            <span class="skill-tag">Next.js</span>
+                            <span class="skill-tag">Firebase</span>
+                            <span class="skill-tag">MySQL</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>📊 Data Science</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">EDA & DV</span>
+                            <span class="skill-tag">Pandas</span>
+                            <span class="skill-tag">NumPy</span>
+                            <span class="skill-tag">Scikit-learn</span>
+                            <span class="skill-tag">TensorFlow</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>🖥️ Operating Systems</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Windows</span>
+                            <span class="skill-tag">Linux (Ubuntu)</span>
+                            <span class="skill-tag">Git/GitHub</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>🗣️ Languages</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">English</span>
+                            <span class="skill-tag">Hindi</span>
                         </div>
                     </div>
                 </div>
@@ -840,8 +947,72 @@
                     <div class="timeline-content">
                         <h3>Competitive Programming & DSA</h3>
                         <p class="role">Active Problem Solver</p>
-                        <p class="duration">Ongoing</p>
-                        <p>Rank #144 on GeeksforGeeks, Rank #178 on HackerRank. Consistent problem-solving across LeetCode, CodeChef, and Codeforces. Specializing in algorithms and system design.</p>
+                        <p class="duration">2023 - Present</p>
+                        <p>Rank #144 on GeeksforGeeks (DSA Excellence), Rank #178 on HackerRank. Consistent high-performance problem-solving across LeetCode, CodeChef, and Codeforces. Specializing in algorithms, data structures, and system design patterns.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Education Page -->
+    <div id="education" class="page">
+        <section>
+            <h2>Education & Achievements</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Bachelor of Technology (CSE - Data Science)</h3>
+                        <p class="role">Chandigarh Group of Colleges, Landran</p>
+                        <p class="duration">2023 - 2027</p>
+                        <p><strong>CGPA: 8.17/10</strong> | Specialization in Artificial Intelligence, Machine Learning, and Data Science. Actively involved in technical clubs, hackathons, and research projects.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Senior Secondary (CBSE)</h3>
+                        <p class="role">Montfort School, Roorkee, Uttarakhand</p>
+                        <p class="duration">2021 - 2023</p>
+                        <p><strong>Percentage: 82%</strong> | Strong foundation in Mathematics, Physics, and Computer Science fundamentals.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Secondary Education (CBSE)</h3>
+                        <p class="role">Montfort School, Roorkee, Uttarakhand</p>
+                        <p class="duration">2020 - 2021</p>
+                        <p><strong>Percentage: 96.2%</strong> | Exceptional academic performance across all subjects including Mathematics and Science.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 4rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
+                <h3 style="color: var(--secondary); margin-bottom: 2rem; text-align: center;">Academic Certifications & Achievements</h3>
+                <div class="projects-grid">
+                    <div class="project-card" style="border-color: var(--secondary); background: rgba(0, 212, 255, 0.05);">
+                        <div class="project-card-body">
+                            <h3 style="color: var(--secondary); margin-bottom: 0.5rem;">🏆 SWAYAM Certification</h3>
+                            <p style="color: var(--text-dark); margin-bottom: 0.5rem;">Data Structures using C (4 Credits)</p>
+                            <p style="color: var(--text-dark); font-size: 0.9rem;">Successfully completed NPTEL SWAYAM course on Data Structures and Algorithms with honors, earning 4 academic credits.</p>
+                        </div>
+                    </div>
+
+                    <div class="project-card" style="border-color: var(--secondary); background: rgba(0, 212, 255, 0.05);">
+                        <div class="project-card-body">
+                            <h3 style="color: var(--secondary); margin-bottom: 0.5rem;">🎯 Zero to One Hackathon</h3>
+                            <p style="color: var(--text-dark); margin-bottom: 0.5rem;">Hackathon Certification</p>
+                            <p style="color: var(--text-dark); font-size: 0.9rem;">Completed Zero to One hackathon by Chandigarh University, demonstrating rapid prototyping and innovative problem-solving skills.</p>
+                        </div>
+                    </div>
+
+                    <div class="project-card" style="border-color: var(--secondary); background: rgba(0, 212, 255, 0.05);">
+                        <div class="project-card-body">
+                            <h3 style="color: var(--secondary); margin-bottom: 0.5rem;">🎤 Emergitech 1.0 Best Speaker</h3>
+                            <p style="color: var(--text-dark); margin-bottom: 0.5rem;">Recognition Award</p>
+                            <p style="color: var(--text-dark); font-size: 0.9rem;">Awarded Best Speaker Certificate at Emergitech 1.0 technical symposium for exceptional presentation and communication skills.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -858,15 +1029,17 @@
                     <div class="project-card-body">
                         <span class="featured-badge">⭐ Featured Project</span>
                         <h3>Suraksha AI</h3>
-                        <h4 style="color: var(--secondary); margin-bottom: 1rem;">Next-Gen Flood Monitoring & Prediction</h4>
-                        <p>Advanced AI-powered real-time flood risk prediction system with satellite data integration, ML-based prediction models, and instant alerts. Monitors 20+ cities with 95% accuracy, protecting communities from flood disasters.</p>
+                        <h4 style="color: var(--secondary); margin-bottom: 1rem;">Next-Gen Flood Monitoring & Prediction System</h4>
+                        <p><strong>Advanced AI-powered real-time flood risk prediction system</strong> combining satellite data integration, ML-based predictive models, and intelligent alerting. Monitors 20+ cities with 95% accuracy. Features: Real-time satellite data processing, ML prediction models, Instant SMS/Email alerts, Interactive data visualization, Community risk assessment.</p>
+                        <p style="color: var(--text-dark); font-size: 0.9rem; margin-top: 0.8rem;"><strong>Impact:</strong> Protects vulnerable communities from flood disasters through advanced early warning system.</p>
                         <div class="tech-stack">
                             <span class="tech-badge">Next.js</span>
                             <span class="tech-badge">React</span>
                             <span class="tech-badge">Python</span>
-                            <span class="tech-badge">ML/AI</span>
+                            <span class="tech-badge">TensorFlow</span>
                             <span class="tech-badge">Real-time Data</span>
-                            <span class="tech-badge">Satellite API</span>
+                            <span class="tech-badge">Satellite APIs</span>
+                            <span class="tech-badge">Vercel</span>
                         </div>
                         <div class="project-links">
                             <a href="https://suraksha-ai-next-gen-flood-monitering-201lcnfcl.vercel.app/" target="_blank">🚀 Live Demo</a>
@@ -879,11 +1052,13 @@
                     <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Cdefs%3E%3ClinearGradient id='grad2' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23667eea;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23764ba2;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23grad2)' width='400' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='40' fill='white' text-anchor='middle' dominant-baseline='middle' font-weight='bold'%3E💬 Sentiment Analysis%3C/text%3E%3Ctext x='50%25' y='75%25' font-size='16' fill='white' text-anchor='middle' font-weight='300'%3EDashboard%3C/text%3E%3C/svg%3E" alt="Sentiment Analysis" class="project-image">
                     <div class="project-card-body">
                         <h3>Customer Chat & Sentiment Analysis</h3>
-                        <p>Real-time NLP-powered sentiment analysis dashboard for customer interactions. Analyzes emotions, classifies sentiments, and provides business intelligence insights.</p>
+                        <p><strong>Real-time NLP-powered sentiment analysis dashboard</strong> for customer interactions. Advanced emotion detection, intent classification, issue clustering, and business intelligence generation from chat conversations.</p>
+                        <p style="color: var(--text-dark); font-size: 0.9rem; margin-top: 0.5rem;"><strong>Features:</strong> Transformer-based sentiment classification, emotion detection, issue clustering, automated insights, interactive visualizations.</p>
                         <div class="tech-stack">
                             <span class="tech-badge">Streamlit</span>
                             <span class="tech-badge">NLP</span>
                             <span class="tech-badge">Transformers</span>
+                            <span class="tech-badge">HuggingFace</span>
                             <span class="tech-badge">Python</span>
                         </div>
                         <div class="project-links">
@@ -896,13 +1071,15 @@
                 <div class="project-card">
                     <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Cdefs%3E%3ClinearGradient id='grad3' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2351cf66;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%2338a169;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23grad3)' width='400' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='40' fill='white' text-anchor='middle' dominant-baseline='middle' font-weight='bold'%3E📊 Flood Analysis%3C/text%3E%3Ctext x='50%25' y='75%25' font-size='16' fill='white' text-anchor='middle' font-weight='300'%3EDashboard%3C/text%3E%3C/svg%3E" alt="Flood Dashboard" class="project-image">
                     <div class="project-card-body">
-                        <h3>Flood Analysis Dashboard</h3>
-                        <p>Comprehensive flood prediction and analysis system with machine learning models and data visualization for disaster prevention and management.</p>
+                        <h3>Sentiment Analysis of Punjab Flood Response 2025</h3>
+                        <p><strong>Streamlit-based Flood Sentiment Analysis system</strong> analyzing public emotions from social media during flood events in Punjab. Real-time sentiment tracking, concern identification, and trend analysis for disaster response coordination.</p>
+                        <p style="color: var(--text-dark); font-size: 0.9rem; margin-top: 0.5rem;"><strong>Features:</strong> Real-time data processing, sentiment classification, trend visualization, emergency sentiment alerts, regional analysis.</p>
                         <div class="tech-stack">
                             <span class="tech-badge">Streamlit</span>
+                            <span class="tech-badge">NLP</span>
                             <span class="tech-badge">Python</span>
-                            <span class="tech-badge">ML</span>
                             <span class="tech-badge">Tableau</span>
+                            <span class="tech-badge">Data Viz</span>
                         </div>
                         <div class="project-links">
                             <a href="https://flood-analysis-wzhbjuvcdhjrlwxerhfjam.streamlit.app/" target="_blank">🚀 Live Demo</a>
@@ -912,18 +1089,24 @@
                 </div>
 
                 <div class="project-card">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Cdefs%3E%3ClinearGradient id='grad4' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23ff6b6b;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23ff5252;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23grad4)' width='400' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='40' fill='white' text-anchor='middle' dominant-baseline='middle' font-weight='bold'%3E💡 Gen AI Solutions%3C/text%3E%3Ctext x='50%25' y='75%25' font-size='16' fill='white' text-anchor='middle' font-weight='300'%3EHackathon Projects%3C/text%3E%3C/svg%3E" alt="Hackathon" class="project-image">
+                    <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/e3212349-0c89-477d-b2b4-f48328e5e268" alt="AI Hackathon Project Suite" class="project-image" style="object-fit: cover; filter: brightness(0.7);">
                     <div class="project-card-body">
-                        <h3>Gen AI & Hackathon Projects</h3>
-                        <p>AI-powered solutions from GHCI 25, Zero to One, and other hackathons. Focus on rapid prototyping, innovation, and solving real-world problems with GenAI.</p>
+                        <h3>AI Hackathon Project Suite</h3>
+                        <p><strong>Comprehensive portfolio of AI-driven solutions</strong> developed across multiple national hackathons including GHCI 25 (AnitaB.org's "Unbound with GenAI: Breaking Barriers"), Zero to One by Chandigarh University, and Smart India Hackathon. Each project demonstrates end-to-end development from problem identification to deployment.</p>
+                        <p style="color: var(--text-dark); font-size: 0.9rem; margin-top: 0.8rem;"><strong>Key Outcomes:</strong> Built production-ready AI applications under 24-48 hour constraints, integrated LLMs with custom RAG pipelines for domain-specific knowledge retrieval, developed full-stack solutions combining React frontends with Python ML backends, implemented real-time data processing and visualization dashboards, and collaborated with cross-functional teams to deliver innovative solutions addressing real-world challenges in healthcare, disaster management, and social impact.</p>
+                        <p style="color: var(--secondary); font-size: 0.9rem; margin-top: 0.8rem; font-weight: 600;">🏆 Demonstrated Skills: Rapid prototyping • AI/ML model integration • Full-stack development • Team collaboration • Pressure handling • Creative problem-solving</p>
                         <div class="tech-stack">
                             <span class="tech-badge">Gen AI</span>
+                            <span class="tech-badge">LLMs</span>
+                            <span class="tech-badge">RAG Systems</span>
                             <span class="tech-badge">React</span>
                             <span class="tech-badge">Python</span>
-                            <span class="tech-badge">LLMs</span>
+                            <span class="tech-badge">Streamlit</span>
+                            <span class="tech-badge">APIs</span>
+                            <span class="tech-badge">Real-time Processing</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/Akshat2006ui" target="_blank">💻 GitHub</a>
+                            <a href="https://github.com/Akshat2006ui" target="_blank">💻 View Projects</a>
                         </div>
                     </div>
                 </div>
@@ -1000,9 +1183,12 @@
                     <a href="tel:+918699845663" class="contact-link">📱 Phone</a>
                 </div>
                 <p style="color: var(--text-dark); margin-top: 2rem; font-size: 0.95rem;">
-                    <strong>Email:</strong> akshatkapoor640@gmail.com | cec236030.ds.cec@cgc.edu.in<br>
-                    <strong>Phone:</strong> +91 8699845663<br>
-                    <strong>Location:</strong> Haryana, India
+                    <strong>📧 Email:</strong> akshatkapoor640@gmail.com | cec236030.ds.cec@cgc.edu.in<br>
+                    <strong>📱 Phone:</strong> +91 8699845663<br>
+                    <strong>🏠 Residence:</strong> Roorkee, Uttarakhand<br>
+                    <strong>🏫 Education:</strong> BTech CSE (Data Science) - Chandigarh Group of Colleges<br>
+                    <strong>👨‍👩‍👧‍👦 Parents:</strong> Vineet Kapoor & Monica Kapoor<br>
+                    <strong>🎂 DOB:</strong> January 1, 2006
                 </p>
             </div>
         </section>
