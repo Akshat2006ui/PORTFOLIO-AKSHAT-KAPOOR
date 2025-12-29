@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Akshat Kapoor - AI/ML Engineer & Full-Stack Developer. Next-Gen Flood Monitoring (Suraksha AI), Gen AI, NLP, Data Science">
+    <meta name="keywords" content="AI, ML, Gen AI, NLP, Full-Stack, Data Science, Flood Monitoring, Suraksha AI">
+    <title>Akshat Kapoor - AI/ML Engineer | Suraksha AI Creator</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75' fill='%232198CD'>⚡</text></svg>">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2198CD;
+            --primary-dark: #1a7bb3;
+            --secondary: #00d4ff;
+            --accent: #ff6b6b;
+            --dark-bg: #0a1628;
+            --card-bg: #1a2c4a;
+            --text-light: #e0e0e0;
+            --text-dark: #8a8a8a;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a1628 0%, #1a2c4a 100%);
+            color: var(--text-light);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 22, 40, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(33, 152, 205, 0.2);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after,
+        nav a.active::after {
+            width: 100%;
+        }
+
+        nav a:hover {
+            color: var(--secondary);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Page Transition */
+        .page {
+            display: none;
+            opacity: 0;
+            animation: fadeIn 0.5s ease forwards;
+            margin-top: 80px;
+        }
+
+        .page.active {
+            display: block;
+            opacity: 1;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 2rem 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 3px solid var(--secondary);
+            margin: 0 auto 2rem;
+            object-fit: cover;
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 32px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            color: white;
+            box-shadow: 0 8px 25px rgba(0, 212, 255, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0, 212, 255, 0.4);
+        }
+
+        .btn-secondary {
+            border: 2px solid var(--primary);
+            color: var(--secondary);
+            background: transparent;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(33, 152, 205, 0.1);
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 2rem;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+
+        .highlight {
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .skill-category h4 {
+            color: var(--secondary);
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .skill-tag {
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid var(--primary);
+            color: var(--secondary);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--secondary) 0%, var(--primary) 100%);
+        }
+
+        .timeline-item {
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) .content {
+            margin-left: 0;
+            margin-right: 52%;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) .content {
+            margin-left: 52%;
+            margin-right: 0;
+            text-align: left;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border: 3px solid var(--dark-bg);
+            border-radius: 50%;
+            top: 0;
+            z-index: 1;
+        }
+
+        .timeline-content {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 3px solid var(--secondary);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .timeline-content h3 {
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content .role {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content .duration {
+            color: var(--text-dark);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-content p {
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(33, 152, 205, 0.2);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            border-color: var(--secondary);
+            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.2);
+            transform: translateY(-10px);
+        }
+
+        .project-card.featured {
+            grid-column: span 1;
+            border: 2px solid var(--secondary);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        }
+
+        .project-card-body {
+            padding: 2rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .featured-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            width: fit-content;
+        }
+
+        .project-card h3 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .project-card p {
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            flex: 1;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-badge {
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 0.3rem 0.7rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-links a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .project-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Certificates Gallery */
+        .cert-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .cert-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(33, 152, 205, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .cert-card:hover {
+            border-color: var(--secondary);
+            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .cert-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        }
+
+        .cert-body {
+            padding: 1.5rem;
+        }
+
+        .cert-body h3 {
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-body p {
+            color: var(--text-dark);
+            font-size: 0.9rem;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+
+        .lightbox-image {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 8px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-content p {
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .contact-link {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            padding: 0.8rem 1.5rem;
+            border: 2px solid var(--primary);
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-link:hover {
+            background: rgba(0, 212, 255, 0.1);
+            border-color: var(--secondary);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(10, 22, 40, 0.5);
+            border-top: 1px solid rgba(33, 152, 205, 0.2);
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-dark);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content {
+                padding: 0 1rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item:nth-child(odd) .content,
+            .timeline-item:nth-child(even) .content {
+                margin-left: 60px;
+                margin-right: 0;
+                text-align: left;
+            }
+
+            .timeline-item::before {
+                left: 13px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-card.featured {
+                grid-column: span 1;
+            }
+
+            .cert-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 50px 1rem;
+            }
+
+            section h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav ul {
+                gap: 1rem;
+                font-size: 0.8rem;
+            }
+
+            .hero {
+                padding: 100px 1rem 60px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            section h2 {
+                font-size: 1.5rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="#" class="logo" onclick="goToPage('home')">⚡ Akshat</a>
+            <ul>
+                <li><a href="#" onclick="goToPage('home')" class="nav-link">Home</a></li>
+                <li><a href="#" onclick="goToPage('about')" class="nav-link">About</a></li>
+                <li><a href="#" onclick="goToPage('experience')" class="nav-link">Experience</a></li>
+                <li><a href="#" onclick="goToPage('projects')" class="nav-link">Projects</a></li>
+                <li><a href="#" onclick="goToPage('certs')" class="nav-link">Certifications</a></li>
+                <li><a href="#" onclick="goToPage('contact')" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <section class="hero">
+            <div class="hero-content">
+                <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/e3212349-0c89-477d-b2b4-f48328e5e268" alt="Akshat Kapoor" class="profile-img">
+                <h1>Akshat Kapoor</h1>
+                <p class="subtitle">AI/ML Engineer & Full-Stack Developer</p>
+                <p>Specialized in Generative AI, NLP, and building intelligent solutions. Creator of Suraksha AI - Next-Gen Flood Monitoring System. BTech CSE (Data Science) @ Chandigarh Group of Colleges.</p>
+                <div class="cta-buttons">
+                    <button class="btn btn-primary" onclick="goToPage('projects')">View My Work</button>
+                    <button class="btn btn-secondary" onclick="goToPage('contact')">Get In Touch</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- About Page -->
+    <div id="about" class="page">
+        <section>
+            <h2>About Me</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>I'm a <span class="highlight">BTech CSE (Data Science)</span> student from Chandigarh Group of Colleges, specializing in <span class="highlight">Generative AI, Machine Learning, and NLP</span>.</p>
+                    <p>Currently serving as <span class="highlight">Head of Public Collaboration</span> at Emergians (Dept. of Emerging Technologies), where I lead technical events and innovation initiatives.</p>
+                    <p>Recently completed intensive <span class="highlight">Gen AI training at Grazitti Interactive</span>, focusing on LLMs, prompt engineering, and building AI-powered applications.</p>
+                    <p>My journey includes building <span class="highlight">Suraksha AI</span> - a next-generation flood monitoring system with real-time predictions, full-stack web development, competitive programming, and multiple hackathon participations.</p>
+                </div>
+                <div>
+                    <h3 style="color: var(--secondary); margin-bottom: 1.5rem;">Core Competencies</h3>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h4>🤖 Gen AI & LLMs</h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Gen AI</span>
+                                <span class="skill-tag">LLMs</span>
+                                <span class="skill-tag">Prompt Engineering</span>
+                                <span class="skill-tag">RAG</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h4>🧠 NLP & ML</h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag">NLP</span>
+                                <span class="skill-tag">Sentiment Analysis</span>
+                                <span class="skill-tag">Transformers</span>
+                                <span class="skill-tag">EDA & DV</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h4>💻 Languages</h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">C++</span>
+                                <span class="skill-tag">JavaScript</span>
+                                <span class="skill-tag">R</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h4>🛠️ Tech Stack</h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag">React</span>
+                                <span class="skill-tag">Django</span>
+                                <span class="skill-tag">Streamlit</span>
+                                <span class="skill-tag">Tableau</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Experience Page -->
+    <div id="experience" class="page">
+        <section>
+            <h2>Experience & Leadership</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Head of Public Collaboration</h3>
+                        <p class="role">Emergians - Dept. of Emerging Technologies</p>
+                        <p class="duration">Aug 2025 - Present</p>
+                        <p>Leading public collaboration and outreach initiatives. Managing technical events, workshops, and seminars in AI, Data Science, and emerging technologies. Strengthening department's visibility and innovation ecosystem.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Gen AI Internship & Training</h3>
+                        <p class="role">Grazitti Interactive - Training & Consulting</p>
+                        <p class="duration">Jun 2025 - Jul 2025</p>
+                        <p>Completed intensive Gen AI certification. Focused on LLMs, prompt engineering, NLP pipelines, and building AI-powered applications with Streamlit. Practical implementation of GenAI solutions.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Hackathon Participant & Developer</h3>
+                        <p class="role">Multiple Hackathons</p>
+                        <p class="duration">2024 - Present</p>
+                        <p>Actively participated in GHCI 25 (AnitaB.org), Zero to One, and Smart India Hackathons. Developed end-to-end AI/ML solutions integrating frontend, backend, and ML models under tight constraints.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Competitive Programming & DSA</h3>
+                        <p class="role">Active Problem Solver</p>
+                        <p class="duration">Ongoing</p>
+                        <p>Rank #144 on GeeksforGeeks, Rank #178 on HackerRank. Consistent problem-solving across LeetCode, CodeChef, and Codeforces. Specializing in algorithms and system design.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Projects Page -->
+    <div id="projects" class="page">
+        <section>
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card featured">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%232198CD;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%2300d4ff;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23grad)' width='400' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='48' fill='white' text-anchor='middle' dominant-baseline='middle' font-weight='bold'%3E🌊 SURAKSHA AI%3C/text%3E%3Ctext x='50%25' y='75%25' font-size='18' fill='white' text-anchor='middle' font-weight='300'%3EFlood Monitoring%3C/text%3E%3C/svg%3E" alt="Suraksha AI" class="project-image">
+                    <div class="project-card-body">
+                        <span class="featured-badge">⭐ Featured Project</span>
+                        <h3>Suraksha AI</h3>
+                        <h4 style="color: var(--secondary); margin-bottom: 1rem;">Next-Gen Flood Monitoring & Prediction</h4>
+                        <p>Advanced AI-powered real-time flood risk prediction system with satellite data integration, ML-based prediction models, and instant alerts. Monitors 20+ cities with 95% accuracy, protecting communities from flood disasters.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">Next.js</span>
+                            <span class="tech-badge">React</span>
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">ML/AI</span>
+                            <span class="tech-badge">Real-time Data</span>
+                            <span class="tech-badge">Satellite API</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://suraksha-ai-next-gen-flood-monitering-201lcnfcl.vercel.app/" target="_blank">🚀 Live Demo</a>
+                            <a href="https://github.com/Akshat2006ui/SURAKSHA-AI" target="_blank">💻 GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Cdefs%3E%3ClinearGradient id='grad2' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23667eea;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23764ba2;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23grad2)' width='400' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='40' fill='white' text-anchor='middle' dominant-baseline='middle' font-weight='bold'%3E💬 Sentiment Analysis%3C/text%3E%3Ctext x='50%25' y='75%25' font-size='16' fill='white' text-anchor='middle' font-weight='300'%3EDashboard%3C/text%3E%3C/svg%3E" alt="Sentiment Analysis" class="project-image">
+                    <div class="project-card-body">
+                        <h3>Customer Chat & Sentiment Analysis</h3>
+                        <p>Real-time NLP-powered sentiment analysis dashboard for customer interactions. Analyzes emotions, classifies sentiments, and provides business intelligence insights.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">Streamlit</span>
+                            <span class="tech-badge">NLP</span>
+                            <span class="tech-badge">Transformers</span>
+                            <span class="tech-badge">Python</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://customer-chat-and-sentiment-analysis-dashboard-28fyfrcstspagto.streamlit.app/" target="_blank">🚀 Live Demo</a>
+                            <a href="https://github.com/Akshat2006ui" target="_blank">💻 GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Cdefs%3E%3ClinearGradient id='grad3' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2351cf66;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%2338a169;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23grad3)' width='400' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='40' fill='white' text-anchor='middle' dominant-baseline='middle' font-weight='bold'%3E📊 Flood Analysis%3C/text%3E%3Ctext x='50%25' y='75%25' font-size='16' fill='white' text-anchor='middle' font-weight='300'%3EDashboard%3C/text%3E%3C/svg%3E" alt="Flood Dashboard" class="project-image">
+                    <div class="project-card-body">
+                        <h3>Flood Analysis Dashboard</h3>
+                        <p>Comprehensive flood prediction and analysis system with machine learning models and data visualization for disaster prevention and management.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">Streamlit</span>
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">ML</span>
+                            <span class="tech-badge">Tableau</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://flood-analysis-wzhbjuvcdhjrlwxerhfjam.streamlit.app/" target="_blank">🚀 Live Demo</a>
+                            <a href="https://github.com/Akshat2006ui" target="_blank">💻 GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Cdefs%3E%3ClinearGradient id='grad4' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23ff6b6b;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23ff5252;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23grad4)' width='400' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='40' fill='white' text-anchor='middle' dominant-baseline='middle' font-weight='bold'%3E💡 Gen AI Solutions%3C/text%3E%3Ctext x='50%25' y='75%25' font-size='16' fill='white' text-anchor='middle' font-weight='300'%3EHackathon Projects%3C/text%3E%3C/svg%3E" alt="Hackathon" class="project-image">
+                    <div class="project-card-body">
+                        <h3>Gen AI & Hackathon Projects</h3>
+                        <p>AI-powered solutions from GHCI 25, Zero to One, and other hackathons. Focus on rapid prototyping, innovation, and solving real-world problems with GenAI.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">Gen AI</span>
+                            <span class="tech-badge">React</span>
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">LLMs</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Akshat2006ui" target="_blank">💻 GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Certifications Page -->
+    <div id="certs" class="page">
+        <section>
+            <h2>Certifications & Achievements</h2>
+            <div class="cert-gallery">
+                <div class="cert-card" onclick="openLightbox('https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/e3212349-0c89-477d-b2b4-f48328e5e268')">
+                    <div class="cert-image" style="background: linear-gradient(135deg, #667eea, #764ba2); display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">📜</div>
+                    <div class="cert-body">
+                        <h3>GeeksforGeeks Rank #144</h3>
+                        <p>DSA Problem-Solving Excellence & Competitive Programming</p>
+                    </div>
+                </div>
+
+                <div class="cert-card" onclick="openLightbox('https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/e3212349-0c89-477d-b2b4-f48328e5e268')">
+                    <div class="cert-image" style="background: linear-gradient(135deg, #f093fb, #f5576c); display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">🥈</div>
+                    <div class="cert-body">
+                        <h3>HackerRank Rank #178</h3>
+                        <p>Problem-Solving & Coding Skills in Algorithm Challenges</p>
+                    </div>
+                </div>
+
+                <div class="cert-card" onclick="openLightbox('https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/e3212349-0c89-477d-b2b4-f48328e5e268')">
+                    <div class="cert-image" style="background: linear-gradient(135deg, #4facfe, #00f2fe); display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">🎓</div>
+                    <div class="cert-body">
+                        <h3>SWAYAM Certification</h3>
+                        <p>Data Structures using C - 4 Credits Course Completed</p>
+                    </div>
+                </div>
+
+                <div class="cert-card" onclick="openLightbox('https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/e3212349-0c89-477d-b2b4-f48328e5e268')">
+                    <div class="cert-image" style="background: linear-gradient(135deg, #fa709a, #fee140); display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">🎯</div>
+                    <div class="cert-body">
+                        <h3>GHCI 2025 Hackathon</h3>
+                        <p>AnitaB.org India - Unbound with GenAI: Breaking Barriers</p>
+                    </div>
+                </div>
+
+                <div class="cert-card" onclick="openLightbox('https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/e3212349-0c89-477d-b2b4-f48328e5e268')">
+                    <div class="cert-image" style="background: linear-gradient(135deg, #a8edea, #fed6e3); display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">🏆</div>
+                    <div class="cert-body">
+                        <h3>Gen AI Training Certification</h3>
+                        <p>Grazitti Interactive - LLMs, NLP, Prompt Engineering</p>
+                    </div>
+                </div>
+
+                <div class="cert-card" onclick="openLightbox('https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/e3212349-0c89-477d-b2b4-f48328e5e268')">
+                    <div class="cert-image" style="background: linear-gradient(135deg, #ff9a56, #ff6a88); display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">⭐</div>
+                    <div class="cert-body">
+                        <h3>Head of Public Collaboration</h3>
+                        <p>Emergians - Dept. of Emerging Technologies Leadership</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contact" class="page">
+        <section>
+            <h2>Let's Connect</h2>
+            <div class="contact-content">
+                <p>I'm always interested in discussing AI/ML opportunities, collaborations, hackathons, and innovative projects. Feel free to reach out!</p>
+                <div class="contact-links">
+                    <a href="https://www.linkedin.com/in/akshat-kapoor-368a0b275" class="contact-link" target="_blank">💼 LinkedIn</a>
+                    <a href="https://github.com/Akshat2006ui" class="contact-link" target="_blank">💻 GitHub</a>
+                    <a href="mailto:akshatkapoor640@gmail.com" class="contact-link">📧 Email</a>
+                    <a href="tel:+918699845663" class="contact-link">📱 Phone</a>
+                </div>
+                <p style="color: var(--text-dark); margin-top: 2rem; font-size: 0.95rem;">
+                    <strong>Email:</strong> akshatkapoor640@gmail.com | cec236030.ds.cec@cgc.edu.in<br>
+                    <strong>Phone:</strong> +91 8699845663<br>
+                    <strong>Location:</strong> Haryana, India
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <button class="lightbox-close" onclick="closeLightbox()">×</button>
+            <img id="lightbox-image" src="" alt="Certificate" class="lightbox-image">
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Akshat Kapoor. All rights reserved. | Built with passion for excellence in AI/ML.</p>
+    </footer>
+
+    <script>
+        // Page Navigation
+        function goToPage(pageId) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            window.scrollTo(0, 0);
+            updateActiveNav(pageId);
+        }
+
+        function updateActiveNav(pageId) {
+            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+            const activeLink = document.querySelector(`[onclick="goToPage('${pageId}')"]`);
+            if (activeLink) activeLink.classList.add('active');
+        }
+
+        // Lightbox
+        function openLightbox(imageSrc) {
+            document.getElementById('lightbox-image').src = imageSrc;
+            document.getElementById('lightbox').classList.add('active');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+    </script>
+</body>
+</html>
